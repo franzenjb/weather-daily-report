@@ -1,0 +1,109 @@
+<p style="color:#000000; font-style:italic;">Weather.gov map checked at {{update_time}}. NWS office verification completed for all SECAR state offices.</p>
+
+<h2 style="color:#990000; font-weight:bold;">{{start_date}} - {{end_date}}</h2>
+
+<div style="background-color:#f0e8e4; border-left:4px solid #7a1d1d; padding:10px; margin-bottom:10px;">
+    <h3 style="color:#7a1d1d; font-weight:bold; font-size:14px; margin:0 0 4px;">Tropical Weather Outlook</h3>
+    <p style="color:#000000; margin:0 0 3px;">{{tropical_outlook_summary|safe}}</p>
+    <div style="text-align:center;">
+        <div style="display:inline-block; background-color:#7a1d1d; color:#ffffff; padding:2px 6px; font-size:20px; font-weight:bold;">
+            Formation Chance: <span style="font-size:20px;">{{formation_chance}}%</span>
+        </div>
+    </div>
+</div>
+
+<h3 style="color:#990000; font-weight:bold;">Severe Weather Threats (5-Day Outlook)</h3>
+
+<strong style="color:#990000;">Tennessee:</strong> {{ tennessee_hazards|safe }}
+{% if tennessee_alerts %}
+<div style="margin-top:5px; margin-left:15px; border-left: 2px solid #cc0000; padding-left:8px;">
+    <strong style="font-size:15px;">Active Alerts:</strong>
+    <ul>
+        {% for alert in tennessee_alerts %}<li>{{ alert|safe }}</li>{% endfor %}
+    </ul>
+</div>
+{% endif %}<br><br>
+
+<strong style="color:#990000;">Mississippi:</strong> {{ mississippi_hazards|safe }}
+{% if mississippi_alerts %}
+<div style="margin-top:5px; margin-left:15px; border-left: 2px solid #cc0000; padding-left:8px;">
+    <strong style="font-size:15px;">Active Alerts:</strong>
+    <ul>
+        {% for alert in mississippi_alerts %}<li>{{ alert|safe }}</li>{% endfor %}
+    </ul>
+</div>
+{% endif %}<br><br>
+
+<strong style="color:#990000;">Alabama:</strong> {{ alabama_hazards|safe }}
+{% if alabama_alerts %}
+<div style="margin-top:5px; margin-left:15px; border-left: 2px solid #cc0000; padding-left:8px;">
+    <strong style="font-size:15px;">Active Alerts:</strong>
+    <ul>
+        {% for alert in alabama_alerts %}<li>{{ alert|safe }}</li>{% endfor %}
+    </ul>
+</div>
+{% endif %}<br><br>
+
+<strong style="color:#990000;">Georgia:</strong> {{ georgia_hazards|safe }}
+{% if georgia_alerts %}
+<div style="margin-top:5px; margin-left:15px; border-left: 2px solid #cc0000; padding-left:8px;">
+    <strong style="font-size:15px;">Active Alerts:</strong>
+    <ul>
+        {% for alert in georgia_alerts %}<li>{{ alert|safe }}</li>{% endfor %}
+    </ul>
+</div>
+{% endif %}<br><br>
+
+<strong style="color:#990000;">Florida:</strong> {{ florida_hazards|safe }}
+{% if florida_alerts %}
+<div style="margin-top:5px; margin-left:15px; border-left: 2px solid #cc0000; padding-left:8px;">
+    <strong style="font-size:15px;">Active Alerts:</strong>
+    <ul>
+        {% for alert in florida_alerts %}<li>{{ alert|safe }}</li>{% endfor %}
+    </ul>
+</div>
+{% endif %}<br><br>
+
+<strong style="color:#990000;">North Carolina:</strong> {{ north_carolina_hazards|safe }}
+{% if north_carolina_alerts %}
+<div style="margin-top:5px; margin-left:15px; border-left: 2px solid #cc0000; padding-left:8px;">
+    <strong style="font-size:15px;">Active Alerts:</strong>
+    <ul>
+        {% for alert in north_carolina_alerts %}<li>{{ alert|safe }}</li>{% endfor %}
+    </ul>
+</div>
+{% endif %}<br><br>
+
+<strong style="color:#990000;">South Carolina:</strong> {{ south_carolina_hazards|safe }}
+{% if south_carolina_alerts %}
+<div style="margin-top:5px; margin-left:15px; border-left: 2px solid #cc0000; padding-left:8px;">
+    <strong style="font-size:15px;">Active Alerts:</strong>
+    <ul>
+        {% for alert in south_carolina_alerts %}<li>{{ alert|safe }}</li>{% endfor %}
+    </ul>
+</div>
+{% endif %}<br><br>
+
+<strong style="color:#990000;">U.S. Virgin Islands:</strong> {{ us_virgin_islands_hazards|safe }}
+{% if us_virgin_islands_alerts %}
+<div style="margin-top:5px; margin-left:15px; border-left: 2px solid #cc0000; padding-left:8px;">
+    <strong style="font-size:15px;">Active Alerts:</strong>
+    <ul>
+        {% for alert in us_virgin_islands_alerts %}<li>{{ alert|safe }}</li>{% endfor %}
+    </ul>
+</div>
+{% endif %}<br><br>
+
+<h3 style="color:#990000; font-weight:bold;">Recommendations</h3>
+
+<h4 style="color:#990000; font-weight:bold;">Immediate Actions</h4>
+<ul>
+{{immediate_actions|safe}}
+</ul>
+
+<h4 style="color:#990000; font-weight:bold;">5-Day Monitoring</h4>
+<ul>
+{{monitoring_actions|safe}}
+</ul>
+
+<p style="color:#000000; font-size:12px;">Sources: NWS local offices, National Hurricane Center, NOAA.</p> 

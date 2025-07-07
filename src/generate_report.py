@@ -172,7 +172,9 @@ def main():
         print("Please create a .env file and add your key, e.g., OPENAI_API_KEY='your-key-here'")
 
     env = Environment(loader=FileSystemLoader(_template_dir), autoescape=True)
-    template = env.get_template('base_template.html')
+    base_template = env.get_template('base_template.html')
+    desktop_template = env.get_template('desktop_template.html')
+    mobile_template = env.get_template('mobile_template.html')
 
     with open(_weather_data_path, 'r') as f:
         weather_data = json.load(f)
@@ -299,7 +301,19 @@ def main():
     template_data["tropical_outlook_summary"] = nhc_data.get('summary', 'Not available.')
     template_data["formation_chance"] = nhc_data.get('formation_chance_7day', '0')
     
-    output_html = template.render(template_data)
+    # Render the desktop and mobile content separately
+    desktop_content = desktop_template.render(template_data)
+    mobile_content = mobile_template.render(template_data)
+    
+    # Add the rendered content to the final template data
+    final_data = {
+        "now_timestamp": template_data["now_timestamp"],
+        "desktop_content": desktop_content,
+        "mobile_content": mobile_content
+    }
+
+    # Render the base template with the separated content
+    output_html = base_template.render(final_data)
 
     with open(_output_html_path, 'w') as f:
         f.write(output_html)
