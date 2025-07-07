@@ -2,7 +2,24 @@
 
 import json
 from jinja2 import Environment, FileSystemLoader
+from markupsafe import Markup
 from datetime import datetime, timedelta
+import openai
+from dotenv import load_dotenv
+import os
+
+# --- Path Setup ---
+# Get the absolute path of the directory where the script is located
+_script_dir = os.path.dirname(os.path.abspath(__file__))
+# Get the project root directory (assuming the script is in 'src')
+_project_root = os.path.dirname(_script_dir)
+
+# Define absolute paths to be used throughout the script
+_template_dir = os.path.join(_project_root, 'template')
+_weather_data_path = os.path.join(_project_root, 'output', 'weather_data.json')
+_nws_offices_path = os.path.join(_project_root, 'data', 'nws_offices.json')
+_prompts_path = os.path.join(_project_root, 'output', 'prompts_for_llm.json')
+_output_html_path = os.path.join(_project_root, 'output', 'index.html')
 
 def format_alert(alert):
     """
@@ -60,15 +77,22 @@ def generate_recommendations(alerts):
 
     return recommendations
 
-def create_llm_prompt(state_name, office_discussions, state_alerts, river_data):
+def create_llm_prompt(state_name, office_discussions, state_alerts, river_data, office_codes):
     """
     Creates a detailed prompt for an LLM to synthesize a weather report for a single state.
     """
+    office_list_str = ", ".join(office_codes)
+
+    if state_alerts:
+        closing_statement = f"<i>Report based on data from offices ({office_list_str}).</i>"
+    else:
+        closing_statement = f"<i>All offices ({office_list_str}) confirm no active warnings.</i>"
+
     prompt = f"""You are an expert meteorologist synthesizing a weather report for emergency management clients. Your tone should be professional, clear, and concise.
 
 Based on the following raw data, please generate a one-paragraph summary for **{state_name}**.
 
-The summary must:
+Your summary MUST follow these rules:
 1.  Provide a general weather outlook for the state.
 2.  Explicitly mention any specific hazards (flooding, thunderstorms, rip currents, etc.).
 3.  If there are active alerts, seamlessly integrate them into the narrative. Use the following HTML tags for emphasis:
@@ -76,7 +100,7 @@ The summary must:
     -   For Watches: `<span style="color:#e67300; font-weight:bold;">WATCH</span>`
     -   For Advisories: `<span style="color:#ffcc00; font-weight:bold;">ADVISORY</span>`
 4.  If there are no major hazards, state that clearly, for example: "No active river flood warnings or watches at this time."
-5.  End with an italicized confirmation of which offices were checked, like: `_All offices (Office1, Office2) confirm no active warnings._`
+5.  You MUST end your response with the following sentence EXACTLY as it is written, with no extra characters or formatting: `{closing_statement}`
 
 **Raw Data for {state_name}:**
 
@@ -109,14 +133,45 @@ The summary must:
     prompt += f"\n**Please generate the synthesized paragraph for {state_name} now.**"
     return prompt
 
+def get_llm_summary(prompt, client):
+    """
+    Calls the OpenAI API to get a summary based on the prompt.
+    """
+    if not client:
+        return "[[LLM integration not configured. Skipping API call.]]"
+    try:
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo", # Or another model like "gpt-4"
+            messages=[
+                # The system prompt is general, the user prompt contains detailed instructions.
+                {"role": "system", "content": "You are an expert meteorologist synthesizing a weather report for emergency management clients. Your tone should be professional, clear, and concise."},
+                {"role": "user", "content": prompt}
+            ]
+        )
+        return response.choices[0].message.content.strip()
+    except Exception as e:
+        print(f"Error calling OpenAI API for a state: {e}")
+        return "[[LLM summary generation failed for this state. Please check the logs.]]"
+
 def main():
     """
     Main function to generate prompts for LLM and a template for the final report.
     """
-    env = Environment(loader=FileSystemLoader('template'), autoescape=True)
+    load_dotenv()
+    
+    # Initialize OpenAI client
+    api_key = os.getenv("OPENAI_API_KEY")
+    client = None
+    if api_key:
+        client = openai.OpenAI(api_key=api_key)
+    else:
+        print("WARNING: OPENAI_API_KEY not found. Report will use placeholder text.")
+        print("Please create a .env file and add your key, e.g., OPENAI_API_KEY='your-key-here'")
+
+    env = Environment(loader=FileSystemLoader(_template_dir), autoescape=True)
     template = env.get_template('base_template.html')
 
-    with open('output/weather_data.json', 'r') as f:
+    with open(_weather_data_path, 'r') as f:
         weather_data = json.load(f)
 
     now = datetime.now()
@@ -136,7 +191,7 @@ def main():
     # Group discussions and alerts by state
     states_data = {}
     office_to_state_map = {}
-    with open('data/nws_offices.json', 'r') as f:
+    with open(_nws_offices_path, 'r') as f:
         offices = json.load(f)
     for office in offices:
         state = office['state']
@@ -158,17 +213,24 @@ def main():
             states_data[state]['discussions'].append(discussion)
 
     for alert in nws_alerts:
-        if alert.get("error"): continue
-        # Alerts are issued by a specific office. We can use that to map them to a state.
-        sending_office_code = alert.get('properties', {}).get('senderName', '').split(' ')[-1] # e.g., "NWS Jackson MS" -> "MS" is not reliable. Better to use office code.
-        if not sending_office_code: # Fallback if senderName is not as expected
-            sending_office_code = alert.get('properties', {}).get('sender', '').split(':')[-1] # e.g. "w-nws.webmaster@noaa.gov (NWS Jackson MS)" -> sometimes has office code.
-        
-        state = office_to_state_map.get(sending_office_code)
-        if state:
-            # Avoid duplicates
-            if alert['properties']['id'] not in [a['properties']['id'] for a in states_data[state]['alerts']]:
-                states_data[state]['alerts'].append(alert)
+        if alert.get("error"):
+            continue
+
+        # Correctly associate alerts with states by checking the 'areaDesc' field.
+        # This is more reliable than using senderName.
+        area_desc = alert.get('properties', {}).get('areaDesc', '')
+        if not area_desc:
+            continue
+
+        for state_name, state_data in states_data.items():
+            state_code = state_name_map_rev.get(state_name) # Get 'NC' from 'North Carolina'
+            
+            # Check if the state code (e.g., "NC") or state name is in the area description.
+            # This handles cases like "Alamance, NC" and "Coastal North Carolina".
+            if f", {state_code}" in area_desc or state_name in area_desc:
+                # Avoid duplicates
+                if alert['properties']['id'] not in [a['properties']['id'] for a in state_data['alerts']]:
+                    state_data['alerts'].append(alert)
 
     # Group river data by state
     if nwps_data:
@@ -187,21 +249,33 @@ def main():
     }
 
     for state_name, data in states_data.items():
-        prompt = create_llm_prompt(state_name, data['discussions'], data['alerts'], data.get('rivers', []))
+        prompt = create_llm_prompt(state_name, data['discussions'], data['alerts'], data.get('rivers', []), data['offices'])
         prompts_for_llm[state_name] = prompt
         
         # In a real application, you would send this prompt to an LLM.
-        # Here, we will just put a placeholder in the template.
-        template_data[state_template_map[state_name]] = f"[[LLM to synthesize summary for {state_name} using the generated prompt]]"
+        # An LLM will now be called to get the summary
+        print(f"Generating summary for {state_name}...")
+        summary = get_llm_summary(prompt, client)
+        if not summary: # Fallback if summary is empty
+             summary = f"[[LLM to synthesize summary for {state_name} using the generated prompt]]"
+        # Wrap the summary in Markup to ensure the HTML tags from the LLM are rendered correctly.
+        template_data[state_template_map[state_name]] = Markup(summary)
 
-    with open('output/prompts_for_llm.json', 'w') as f:
+    with open(_prompts_path, 'w') as f:
         json.dump(prompts_for_llm, f, indent=4)
     print("Prompts for the LLM have been saved to output/prompts_for_llm.json")
 
 
-    # Simplified recommendations
-    template_data["immediate_actions"] = "<li>[[Generated by LLM based on all hazards]]</li>"
-    template_data["monitoring_actions"] = "<li>Continue daily monitoring of NWS local offices for updates.</li>"
+    # Generate and add recommendations
+    all_alerts = weather_data.get('nws_alerts', [])
+    recommendations = generate_recommendations(all_alerts)
+    if recommendations:
+        # Wrap the generated HTML string in Markup to prevent auto-escaping by Jinja2
+        template_data["immediate_actions"] = Markup("".join([f"<li>{rec}</li>" for rec in recommendations]))
+    else:
+        template_data["immediate_actions"] = Markup("<li>No specific immediate actions recommended based on current alerts.</li>")
+
+    template_data["monitoring_actions"] = Markup("<li>Continue daily monitoring of NWS local offices for updates.</li>")
 
     # Process NHC data
     nhc_data = weather_data.get('nhc', {})
@@ -210,10 +284,10 @@ def main():
     
     output_html = template.render(template_data)
 
-    with open('output/index.html', 'w') as f:
+    with open(_output_html_path, 'w') as f:
         f.write(output_html)
 
-    print("Weather report template saved to output/index.html")
+    print(f"Weather report template saved to {_output_html_path}")
 
 if __name__ == "__main__":
     main() 

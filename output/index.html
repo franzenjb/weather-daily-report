@@ -3,112 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Southeastern U.S. Daily Weather Report</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background-color: #fff;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-        }
-        .header-note {
-            font-style: italic;
-            color: #555;
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-        .date-range {
-            color: #c00;
-            font-weight: bold;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        .outlook-box {
-            background-color: #f0e8e4;
-            border-left: 4px solid #7a1d1d;
-            padding: 15px;
-            margin-bottom: 25px;
-        }
-        .outlook-box h3 {
-            color: #7a1d1d;
-            font-weight: bold;
-            font-size: 18px;
-            margin-top: 0;
-        }
-        .threats-header {
-            color: #c00;
-            font-weight: bold;
-            font-size: 22px;
-            border-bottom: none;
-            margin-bottom: 15px;
-        }
-        .state-summary p {
-            margin-bottom: 1.2em;
-        }
-        .state-summary strong {
-            color: #333;
-        }
-        .advisory {
-            color: #e67300;
-            font-weight: bold;
-        }
-        em {
-            color: #555;
-            font-size: 0.9em;
-        }
-        .recommendations ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-        .recommendations li {
-            margin-bottom: 8px;
-        }
-    </style>
+    <title>Weather Report</title>
+    <link rel="stylesheet" href="../style/report.css">
 </head>
 <body>
-    <div class="container">
-        <p class="header-note">Weather.gov map checked at 08:54 AM EDT, Sunday, July 6, 2025. NWS office verification completed for all SECAR state offices.</p>
+    <h1>Daily Weather Report</h1>
+    <div id="weather-data">
+        <!-- Desktop Version -->
+        <div style="background-color:#ffffff; font-family:Arial; font-size:16px; line-height:1.6; padding:24px; margin:0;">
+        <p style="color:#000000; font-style:italic;">Weather.gov map checked at 03:50 PM . NWS office verification completed for all SECAR state offices.</p>
 
-        <h2 class="date-range">July 6, 2025 – July 10, 2025</h2>
+        <h2 style="color:#990000; font-weight:bold;">July 07, 2025 - July 11, 2025</h2>
 
-        <div class="outlook-box">
-            <h3>Tropical Weather Outlook</h3>
-            <p>The National Hurricane Center (NHC) reports no new tropical cyclones are expected during the next 7 days.</p>
+        <div style="background-color:#f0e8e4; border-left:4px solid #7a1d1d; padding:15px; margin-bottom:20px;">
+            <h3 style="color:#7a1d1d; font-weight:bold; font-size:18px; margin:0 0 8px;">Tropical Weather Outlook</h3>
+            <p style="color:#000000; margin:0 0 5px;">Tropical cyclone formation is not expected during the next 7 days.</p>
+            <div style="text-align:center;">
+                <div style="display:inline-block; background-color:#7a1d1d; color:#ffffff; padding:2px 8px; font-size:30px; font-weight:bold;">
+                    Formation Chance: <span style="font-size:30px;">0%</span>
+                </div>
+            </div>
         </div>
 
-        <h2 class="threats-header">Severe Weather Threats (5-Day Outlook)</h2>
+        <h3 style="color:#990000; font-weight:bold;">Severe Weather Threats (5-Day Outlook)</h3>
 
-        <div class="state-summary">
-            <p><strong>Tennessee:</strong> Tennessee will experience a transition to a more active weather pattern this week, characterized by hot and humid conditions with increasing chances for daily showers and thunderstorms. While the overall severe weather threat remains low, these storms may produce localized flash flooding, frequent lightning, and strong wind gusts. Heat index values are expected to reach the upper 90s to low 100s across much of the state. <span class="advisory">ADVISORY:</span> No active alerts or river flooding are reported at this time. <em>All offices (OHX, MEG, MRX) confirm no active warnings.</em></p>
+        <strong style="color:#990000;">Tennessee:</strong> <span style="color:#000000;">The current weather outlook for Tennessee indicates the potential for hazardous conditions, with a <span style="color:#cc0000; font-weight:bold;">Flash Flood Warning</span> in effect until 4:30 PM CDT today issued by NWS Nashville. No rivers are presently at or above flood stage in the monitored areas. It is advised to stay updated on local weather alerts and take necessary precautions. Exercise caution in low-lying areas prone to flooding. Monitor changing weather conditions closely. Stay tuned for further updates as the situation evolves. <i>Report based on data from offices (OHX, MEG, MRX).</i></span><br><br>
 
-            <p><strong>Mississippi:</strong> Hot and humid conditions are the primary concern, with heat index values potentially reaching 105-110 degrees, likely prompting a Heat Advisory. <span class="advisory">ADVISORY:</span> Rain and thunderstorm chances will increase starting Tuesday, which may help moderate temperatures later in the week. Some storms from Wednesday to Friday could become strong to isolated severe. No active alerts or river flooding are reported. <em>Office JAN confirms no active warnings.</em></p>
+        <strong style="color:#990000;">Mississippi:</strong> <span style="color:#000000;">In Mississippi, the weather outlook indicates generally fair conditions with no active river flood warnings or watches at this time. However, a <span style="color:#ffcc00; font-weight:bold;">Flood Advisory</span> for minor flooding is in effect from July 7 at 1:09 PM CDT until August 1 at 7:00 PM CDT, as issued by NWS Jackson MS. There are no significant hazards apart from this advisory. Stay informed for any updates and be prepared for localized flooding in advisory areas.<i>Report based on data from offices (JAN).</i></span><br><br>
 
-            <p><strong>Alabama:</strong> A typical summer pattern is expected, with hot and humid conditions and daily chances for scattered afternoon thunderstorms. <span class="advisory">ADVISORY:</span> These storms could produce gusty downburst winds, small hail, and heavy rainfall. Heat indices may approach 102-107 degrees but are expected to remain just below advisory criteria. A moderate rip current risk may develop for some coastal areas mid-week. No active alerts or widespread river flooding are expected. <em>All offices (BMX, MOB, HUN) confirm no active warnings.</em></p>
+        <strong style="color:#990000;">Alabama:</strong> <span style="color:#000000;">Currently, Alabama is experiencing tranquil weather conditions with no active alerts for any hazards such as flooding, thunderstorms, or rip currents. River levels across the state are below flood stage, posing no immediate threat. All offices (BMX, MOB, HUN) confirm no active warnings.</span><br><br>
 
-            <p><strong>Georgia:</strong> A return to a characteristic summertime pattern brings daily afternoon thunderstorms, with increasing coverage through the week. <span class="advisory">ADVISORY:</span> While widespread severe weather is not anticipated, isolated strong storms with gusty winds, heavy rain, and lightning are possible. Heat index values are a key concern, expected to reach 100-105 degrees. A moderate rip current risk is noted for the coast. No active alerts or river flooding are reported. <em>All offices (FFC, JAX) confirm no active warnings.</em></p>
+        <strong style="color:#990000;">Georgia:</strong> <span style="color:#000000;">Currently, Georgia is experiencing tranquil weather conditions with no active alerts in effect. There are no rivers at or above flood stage in the monitored areas, indicating a low risk of flooding. However, it is essential to stay updated as weather conditions can change rapidly. All offices (FFC, JAX) confirm no active warnings.</i></span><br><br>
 
-            <p><strong>Florida:</strong> A typical, diurnally-driven summer weather pattern will prevail, with daily showers and thunderstorms developing along sea breeze boundaries. <span class="advisory">ADVISORY:</span> Primary storm threats include frequent lightning, gusty winds up to 50 mph, and heavy downpours. Oppressive humidity will lead to peak heat indices of 100-107 degrees in most afternoons. No widespread riverine flooding is expected. No active weather alerts are in effect for the state. <em>All offices (TAE, TBW, MFL, MLB) confirm no active warnings.</em></p>
+        <strong style="color:#990000;">Florida:</strong> <span style="color:#000000;">The weather outlook for Florida indicates a mix of conditions across the state with a severe thunderstorm warning currently active in the region according to NWS Miami FL. No rivers are currently at or above flood stage in the monitored areas, alleviating concerns related to river flooding. Residents should remain vigilant due to the potential risks associated with severe thunderstorms. For further updates and detailed information, it is recommended to stay tuned to local weather alerts. <i>Report based on data from offices (TAE, TBW, MFL, MLB).</i></span><br><br>
 
-            <p><strong>North Carolina:</strong> In the wake of Tropical Depression Chantal's remnants, the state will return to a hot and humid summer pattern. <span class="advisory">ADVISORY:</span> Heat indices may reach 105-109 degrees Tuesday, likely necessitating a Heat Advisory. Daily chances for scattered, strong-to-severe thunderstorms exist, with damaging downbursts and flash flooding as primary threats. A <span class="advisory">High Risk for Rip Currents</span> advisory is in effect for all beaches. <em>All offices (RAH, ILM, MHX) confirm an active rip current advisory.</em></p>
+        <strong style="color:#990000;">North Carolina:</strong> <span style="color:#000000;">In North Carolina, the weather outlook includes multiple severe **Flood Warnings** currently active across the state, issued by NWS offices in Raleigh and Wilmington. No rivers are currently at or above flood stage, but caution is still advised due to persistent flooding risks. Aside from the flooding hazards, the general forecast discussions for RAH, ILM, and MHX remain placeholders, indicating a need for continuous monitoring. Stay updated on local alerts and be prepared for potential impacts from the ongoing **Flood Warnings**. <i>Report based on data from offices (RAH, ILM, MHX).</i></span><br><br>
 
-            <p><strong>South Carolina:</strong> A typical summer pattern will bring hot and humid conditions with daily diurnal thunderstorms. <span class="advisory">ADVISORY:</span> These storms can produce pulse severe winds from wet microbursts, heavy rain, and lightning. Highs will be in the mid-to-upper 90s inland, with heat indices peaking between 100-108 degrees, which may approach Heat Advisory criteria. A moderate risk for rip currents is forecast for the Charleston County coast. <em>All offices (CHS, GSP) confirm no active warnings.</em></p>
-            
-            <p><strong>U.S. Virgin Islands:</strong> Data was not available to generate a forecast for the U.S. Virgin Islands at this time.</p>
+        <strong style="color:#990000;">South Carolina:</strong> <span style="color:#000000;">Currently, South Carolina is experiencing fair weather conditions with no active alerts or hazards such as flooding, thunderstorms, or rip currents. All offices (CHS, GSP, CAE) confirm no active warnings. River conditions are also stable, with no rivers at or above flood stage in the monitored areas of the state. Residents and emergency management personnel can expect calm weather in the immediate future, allowing for normal activities and operations to proceed without major weather-related disruptions.<i>All offices (CHS, GSP, CAE) confirm no active warnings.</i></span><br><br>
+
+        <strong style="color:#990000;">U.S. Virgin Islands:</strong> <span style="color:#000000;">Currently, for the U.S. Virgin Islands, there are no active alerts to report. No major hazards such as flooding, thunderstorms, or rip currents are expected at this time. River conditions are normal with no rivers at or above flood stage in the monitored areas. Remember to stay updated with local forecasts for any changes. <i>All offices (SJU) confirm no active warnings.</i></span><br><br>
+
+        <h3 style="color:#990000; font-weight:bold;">Recommendations</h3>
+
+        <h4 style="color:#990000; font-weight:bold;">Immediate Actions</h4>
+        <ul>
+        <li>When thunder roars, go indoors. Seek shelter during thunderstorms.</li><li>Stay out of the water. Dangerous surf and current conditions are expected.</li><li>Stay hydrated and avoid strenuous activity during the hottest part of the day.</li><li>Do not drive through flooded roadways. Turn around, don't drown.</li><li>Avoid swimming in hazardous surf conditions and obey posted flags.</li>
+        </ul>
+
+        <h4 style="color:#990000; font-weight:bold;">5-Day Monitoring</h4>
+        <ul>
+        <li>Continue daily monitoring of NWS local offices for updates.</li>
+        </ul>
+
+        <p style="color:#000000; font-size:14px;">Sources: NWS local offices, National Hurricane Center, NOAA.</p>
         </div>
 
-        <div class="recommendations">
-            <h2 class="threats-header">Recommendations</h2>
-            <ul>
-                <li>Monitor local NWS office updates, especially regarding heat and storm developments.</li>
-                <li>Review flash flood safety protocols for areas with saturated ground.</li>
-                <li>Adhere to rip current warnings and stay out of the water on affected beaches.</li>
-                <li>Ensure hydration plans are in place for personnel exposed to extreme heat.</li>
-            </ul>
+        <!-- Mobile Version -->
+        <div style="background-color:#ffffff; font-family:Arial; font-size:12px; line-height:1.4; padding:12px; margin:0;">
+        <p style="color:#000000; font-style:italic;">Weather.gov map checked at 03:50 PM . NWS office verification completed for all SECAR state offices.</p>
+
+        <h2 style="color:#990000; font-weight:bold;">July 07, 2025 - July 11, 2025</h2>
+
+        <div style="background-color:#f0e8e4; border-left:4px solid #7a1d1d; padding:10px; margin-bottom:10px;">
+            <h3 style="color:#7a1d1d; font-weight:bold; font-size:14px; margin:0 0 4px;">Tropical Weather Outlook</h3>
+            <p style="color:#000000; margin:0 0 3px;">Tropical cyclone formation is not expected during the next 7 days.</p>
+            <div style="text-align:center;">
+                <div style="display:inline-block; background-color:#7a1d1d; color:#ffffff; padding:2px 6px; font-size:20px; font-weight:bold;">
+                    Formation Chance: <span style="font-size:20px;">0%</span>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="color:#990000; font-weight:bold;">Severe Weather Threats (5-Day Outlook)</h3>
+
+        <strong style="color:#990000;">Tennessee:</strong> <span style="color:#000000;">The current weather outlook for Tennessee indicates the potential for hazardous conditions, with a <span style="color:#cc0000; font-weight:bold;">Flash Flood Warning</span> in effect until 4:30 PM CDT today issued by NWS Nashville. No rivers are presently at or above flood stage in the monitored areas. It is advised to stay updated on local weather alerts and take necessary precautions. Exercise caution in low-lying areas prone to flooding. Monitor changing weather conditions closely. Stay tuned for further updates as the situation evolves. <i>Report based on data from offices (OHX, MEG, MRX).</i></span><br><br>
+
+        <strong style="color:#990000;">Mississippi:</strong> <span style="color:#000000;">In Mississippi, the weather outlook indicates generally fair conditions with no active river flood warnings or watches at this time. However, a <span style="color:#ffcc00; font-weight:bold;">Flood Advisory</span> for minor flooding is in effect from July 7 at 1:09 PM CDT until August 1 at 7:00 PM CDT, as issued by NWS Jackson MS. There are no significant hazards apart from this advisory. Stay informed for any updates and be prepared for localized flooding in advisory areas.<i>Report based on data from offices (JAN).</i></span><br><br>
+
+        <strong style="color:#990000;">Alabama:</strong> <span style="color:#000000;">Currently, Alabama is experiencing tranquil weather conditions with no active alerts for any hazards such as flooding, thunderstorms, or rip currents. River levels across the state are below flood stage, posing no immediate threat. All offices (BMX, MOB, HUN) confirm no active warnings.</span><br><br>
+
+        <strong style="color:#990000;">Georgia:</strong> <span style="color:#000000;">Currently, Georgia is experiencing tranquil weather conditions with no active alerts in effect. There are no rivers at or above flood stage in the monitored areas, indicating a low risk of flooding. However, it is essential to stay updated as weather conditions can change rapidly. All offices (FFC, JAX) confirm no active warnings.</i></span><br><br>
+
+        <strong style="color:#990000;">Florida:</strong> <span style="color:#000000;">The weather outlook for Florida indicates a mix of conditions across the state with a severe thunderstorm warning currently active in the region according to NWS Miami FL. No rivers are currently at or above flood stage in the monitored areas, alleviating concerns related to river flooding. Residents should remain vigilant due to the potential risks associated with severe thunderstorms. For further updates and detailed information, it is recommended to stay tuned to local weather alerts. <i>Report based on data from offices (TAE, TBW, MFL, MLB).</i></span><br><br>
+
+        <strong style="color:#990000;">North Carolina:</strong> <span style="color:#000000;">In North Carolina, the weather outlook includes multiple severe **Flood Warnings** currently active across the state, issued by NWS offices in Raleigh and Wilmington. No rivers are currently at or above flood stage, but caution is still advised due to persistent flooding risks. Aside from the flooding hazards, the general forecast discussions for RAH, ILM, and MHX remain placeholders, indicating a need for continuous monitoring. Stay updated on local alerts and be prepared for potential impacts from the ongoing **Flood Warnings**. <i>Report based on data from offices (RAH, ILM, MHX).</i></span><br><br>
+
+        <strong style="color:#990000;">South Carolina:</strong> <span style="color:#000000;">Currently, South Carolina is experiencing fair weather conditions with no active alerts or hazards such as flooding, thunderstorms, or rip currents. All offices (CHS, GSP, CAE) confirm no active warnings. River conditions are also stable, with no rivers at or above flood stage in the monitored areas of the state. Residents and emergency management personnel can expect calm weather in the immediate future, allowing for normal activities and operations to proceed without major weather-related disruptions.<i>All offices (CHS, GSP, CAE) confirm no active warnings.</i></span><br><br>
+
+        <strong style="color:#990000;">U.S. Virgin Islands:</strong> <span style="color:#000000;">Currently, for the U.S. Virgin Islands, there are no active alerts to report. No major hazards such as flooding, thunderstorms, or rip currents are expected at this time. River conditions are normal with no rivers at or above flood stage in the monitored areas. Remember to stay updated with local forecasts for any changes. <i>All offices (SJU) confirm no active warnings.</i></span><br><br>
+
+        <h3 style="color:#990000; font-weight:bold;">Recommendations</h3>
+
+        <h4 style="color:#990000; font-weight:bold;">Immediate Actions</h4>
+        <ul>
+        <li>When thunder roars, go indoors. Seek shelter during thunderstorms.</li><li>Stay out of the water. Dangerous surf and current conditions are expected.</li><li>Stay hydrated and avoid strenuous activity during the hottest part of the day.</li><li>Do not drive through flooded roadways. Turn around, don't drown.</li><li>Avoid swimming in hazardous surf conditions and obey posted flags.</li>
+        </ul>
+
+        <h4 style="color:#990000; font-weight:bold;">5-Day Monitoring</h4>
+        <ul>
+        <li>Continue daily monitoring of NWS local offices for updates.</li>
+        </ul>
+
+        <p style="color:#000000; font-size:12px;">Sources: NWS local offices, National Hurricane Center, NOAA.</p>
         </div>
     </div>
 </body>

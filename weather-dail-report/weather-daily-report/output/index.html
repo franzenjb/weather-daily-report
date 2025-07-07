@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Southeastern U.S. Daily Weather Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .header-note {
+            font-style: italic;
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .date-range {
+            color: #c00;
+            font-weight: bold;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .outlook-box {
+            background-color: #f0e8e4;
+            border-left: 4px solid #7a1d1d;
+            padding: 15px;
+            margin-bottom: 25px;
+        }
+        .outlook-box h3 {
+            color: #7a1d1d;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 0;
+        }
+        .threats-header {
+            color: #c00;
+            font-weight: bold;
+            font-size: 22px;
+            border-bottom: none;
+            margin-bottom: 15px;
+        }
+        .state-summary p {
+            margin-bottom: 1.2em;
+        }
+        .state-summary strong {
+            color: #333;
+        }
+        .advisory {
+            color: #e67300;
+            font-weight: bold;
+        }
+        em {
+            color: #555;
+            font-size: 0.9em;
+        }
+        .recommendations ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .recommendations li {
+            margin-bottom: 8px;
+        }
+
+        /* Responsive styles for mobile devices */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+                font-size: 14px; /* Base font for mobile */
+            }
+            .header-note, .state-summary p, .recommendations li {
+                font-size: 12px;
+            }
+            .date-range {
+                font-size: 20px;
+            }
+            .threats-header {
+                font-size: 18px;
+            }
+            .outlook-box h3 {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="header-note">Weather.gov map checked at 08:54 AM EDT, Sunday, July 6, 2025. NWS office verification completed for all SECAR state offices.</p>
+
+        <h2 class="date-range">July 6, 2025 – July 10, 2025</h2>
+
+        <div class="outlook-box">
+            <h3>Tropical Weather Outlook</h3>
+            <p>The National Hurricane Center (NHC) reports no new tropical cyclones are expected during the next 7 days.</p>
+        </div>
+
+        <h2 class="threats-header">Severe Weather Threats (5-Day Outlook)</h2>
+
+        <div class="state-summary">
+            <p><strong>Tennessee:</strong> Sunny and dry for most areas. <span class="advisory">ADVISORY:</span> Isolated afternoon showers and thunderstorms possible, especially in eastern and southern counties. Lightning is the primary hazard with any storms. No active river flood warnings or watches at this time. All offices (Nashville, Memphis, Morristown) confirm no current watches, warnings, or advisories.</p>
+
+            <p><strong>Mississippi:</strong> Hot and humid conditions. <span class="advisory">ADVISORY:</span> Isolated thunderstorms possible each afternoon, with lightning risk. No active flood warnings. Jackson office confirms no active warnings or watches.</p>
+            
+            <p><strong>Alabama:</strong> Hot weather continues. <span class="advisory">ADVISORY:</span> Scattered afternoon thunderstorms expected, especially north and central. Lightning and brief heavy rain possible. No active flood warnings. Birmingham, Mobile, Huntsville offices confirm no active severe weather warnings or river flood warnings.</p>
+
+            <p><strong>Georgia:</strong> Mostly dry, with isolated afternoon thunderstorms possible, mainly in north and central regions. <span class="advisory">ADVISORY:</span> Lightning hazard with any storm. No active flood warnings. Atlanta and Jacksonville offices confirm no current warnings or advisories.</p>
+
+            <p><strong>Florida:</strong> Typical summer pattern: hot, humid, and scattered afternoon thunderstorms statewide. <span class="advisory">ADVISORY:</span> Frequent lightning and locally heavy rainfall possible. No active river flood warnings. Tallahassee, Tampa Bay, Miami, and Melbourne offices confirm no current severe weather or flood warnings.</p>
+
+            <p><strong>North Carolina:</strong> Partly cloudy with scattered afternoon thunderstorms, especially east and coastal. <span class="advisory">ADVISORY:</span> Lightning and locally heavy rainfall possible due to Chantal remnants. No active river flood warnings. Raleigh, Wilmington, and Newport/Morehead City offices confirm no active warnings.</p>
+
+            <p><strong>South Carolina:</strong> Warm and humid with heavy rain from Chantal landfall. <span class="advisory">ADVISORY:</span> Flash flooding risk with 2-4 inches rain, up to 6 inches locally. Lightning threat persists. Charleston, Greenville-Spartanburg, and Columbia offices confirm no additional warnings.</p>
+            
+            <p><strong>U.S. Virgin Islands:</strong> Isolated showers and thunderstorms possible, mainly in the afternoon. <span class="advisory">ADVISORY:</span> Lightning hazard with any storm. No active flood warnings. San Juan office confirms no current warnings or advisories.</p>
+        </div>
+
+        <div class="recommendations">
+            <h2 class="threats-header">Recommendations</h2>
+            <ul>
+                <li>Monitor local NWS office updates, especially regarding heat and storm developments.</li>
+                <li>Review flash flood safety protocols for areas with saturated ground.</li>
+                <li>Adhere to rip current warnings and stay out of the water on affected beaches.</li>
+                <li>Ensure hydration plans are in place for personnel exposed to extreme heat.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html> 
