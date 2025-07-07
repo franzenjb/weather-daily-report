@@ -30,6 +30,7 @@ def format_alert(alert):
     event = properties.get('event', 'Unknown Event')
     headline = properties.get('headline', 'No headline available.')
     severity = properties.get('severity', 'Unknown')
+    area_desc = properties.get('areaDesc', 'Unknown area')
 
     color = "#000000" # Default text color
     style = "font-weight:bold;"
@@ -37,13 +38,14 @@ def format_alert(alert):
     # Simple severity mapping
     if severity in ['Severe', 'Extreme']:
         color = '#cc0000'
-        event_str = f'<span style="color:{color}; {style}">WARNING</span>: {headline}'
+        # Example: WARNING: Flood Warning for Williamson County...
+        event_str = f'<span style="color:{color}; {style}">WARNING</span>: {event} for {area_desc}.<br><i style="font-size:13px;">{headline}</i>'
     elif severity == 'Moderate':
         color = '#e67300'
-        event_str = f'<span style="color:{color}; {style}">WATCH</span>: {headline}'
+        event_str = f'<span style="color:{color}; {style}">WATCH</span>: {event} for {area_desc}.<br><i style="font-size:13px;">{headline}</i>'
     else: # Minor, Unknown
         color = '#ffcc00'
-        event_str = f'<span style="color:{color}; {style}">ADVISORY</span>: {headline}'
+        event_str = f'<span style="color:{color}; {style}">ADVISORY</span>: {event} for {area_desc}.<br><i style="font-size:13px;">{headline}</i>'
 
     return event_str
 
