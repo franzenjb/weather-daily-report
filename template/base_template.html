@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Report</title>
+    <link rel="stylesheet" href="../style/report.css">
+</head>
+<body>
+    <h1>Daily Weather Report</h1>
+    <div id="weather-data">
+        <!-- Desktop Version -->
+        <div style="background-color:#ffffff; font-family:Arial; font-size:16px; line-height:1.6; padding:24px; margin:0;">
+        <p style="color:#000000; font-style:italic;">Weather.gov map checked at {{update_time}}. NWS office verification completed for all SECAR state offices.</p>
+
+        <h2 style="color:#990000; font-weight:bold;">{{start_date}} - {{end_date}}</h2>
+
+        <div style="background-color:#f0e8e4; border-left:4px solid #7a1d1d; padding:15px; margin-bottom:20px;">
+            <h3 style="color:#7a1d1d; font-weight:bold; font-size:18px; margin:0 0 8px;">Tropical Weather Outlook</h3>
+            <p style="color:#000000; margin:0 0 5px;">{{tropical_outlook_summary}}</p>
+            <div style="text-align:center;">
+                <div style="display:inline-block; background-color:#7a1d1d; color:#ffffff; padding:2px 8px; font-size:30px; font-weight:bold;">
+                    Formation Chance: <span style="font-size:30px;">{{formation_chance}}%</span>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="color:#990000; font-weight:bold;">Severe Weather Threats (5-Day Outlook)</h3>
+
+        <strong style="color:#990000;">Tennessee:</strong> <span style="color:#000000;">{{tennessee_hazards}}</span><br><br>
+
+        <strong style="color:#990000;">Mississippi:</strong> <span style="color:#000000;">{{mississippi_hazards}}</span><br><br>
+
+        <strong style="color:#990000;">Alabama:</strong> <span style="color:#000000;">{{alabama_hazards}}</span><br><br>
+
+        <strong style="color:#990000;">Georgia:</strong> <span style="color:#000000;">{{georgia_hazards}}</span><br><br>
+
+        <strong style="color:#990000;">Florida:</strong> <span style="color:#000000;">{{florida_hazards}}</span><br><br>
+
+        <strong style="color:#990000;">North Carolina:</strong> <span style="color:#000000;">{{north_carolina_hazards}}</span><br><br>
+
+        <strong style="color:#990000;">South Carolina:</strong> <span style="color:#000000;">{{south_carolina_hazards}}</span><br><br>
+
+        <strong style="color:#990000;">U.S. Virgin Islands:</strong> <span style="color:#000000;">{{us_virgin_islands_hazards}}</span><br><br>
+
+        <h3 style="color:#990000; font-weight:bold;">Recommendations</h3>
+
+        <h4 style="color:#990000; font-weight:bold;">Immediate Actions</h4>
+        <ul>
+        {{immediate_actions}}
+        </ul>
+
+        <h4 style="color:#990000; font-weight:bold;">5-Day Monitoring</h4>
+        <ul>
+        {{monitoring_actions}}
+        </ul>
+
+        <p style="color:#000000; font-size:14px;">Sources: NWS local offices, National Hurricane Center, NOAA.</p>
+        </div>
+
+        <!-- Mobile Version -->
+        <div style="background-color:#ffffff; font-family:Arial; font-size:12px; line-height:1.4; padding:12px; margin:0;">
+        <p style="color:#000000; font-style:italic;">Weather.gov map checked at {{update_time}}. NWS office verification completed for all SECAR state offices.</p>
+
+        <h2 style="color:#990000; font-weight:bold;">{{start_date}} - {{end_date}}</h2>
+
+        <div style="background-color:#f0e8e4; border-left:4px solid #7a1d1d; padding:10px; margin-bottom:10px;">
+            <h3 style="color:#7a1d1d; font-weight:bold; font-size:14px; margin:0 0 4px;">Tropical Weather Outlook</h3>
+            <p style="color:#000000; margin:0 0 3px;">{{tropical_outlook_summary}}</p>
+            <div style="text-align:center;">
+                <div style="display:inline-block; background-color:#7a1d1d; color:#ffffff; padding:2px 6px; font-size:20px; font-weight:bold;">
+                    Formation Chance: <span style="font-size:20px;">{{formation_chance}}%</span>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="color:#990000; font-weight:bold;">Severe Weather Threats (5-Day Outlook)</h3>
+
+        <strong style="color:#990000;">Tennessee:</strong> <span style="color:#000000;">{{tennessee_hazards}}</span><br><br>
+
+        <strong style="color:#990000;">Mississippi:</strong> <span style="color:#000000;">{{mississippi_hazards}}</span><br><br>
+
+        <strong style="color:#990000;">Alabama:</strong> <span style="color:#000000;">{{alabama_hazards}}</span><br><br>
+
+        <strong style="color:#990000;">Georgia:</strong> <span style="color:#000000;">{{georgia_hazards}}</span><br><br>
+
+        <strong style="color:#990000;">Florida:</strong> <span style="color:#000000;">{{florida_hazards}}</span><br><br>
+
+        <strong style="color:#990000;">North Carolina:</strong> <span style="color:#000000;">{{north_carolina_hazards}}</span><br><br>
+
+        <strong style="color:#990000;">South Carolina:</strong> <span style="color:#000000;">{{south_carolina_hazards}}</span><br><br>
+
+        <strong style="color:#990000;">U.S. Virgin Islands:</strong> <span style="color:#000000;">{{us_virgin_islands_hazards}}</span><br><br>
+
+        <h3 style="color:#990000; font-weight:bold;">Recommendations</h3>
+
+        <h4 style="color:#990000; font-weight:bold;">Immediate Actions</h4>
+        <ul>
+        {{immediate_actions}}
+        </ul>
+
+        <h4 style="color:#990000; font-weight:bold;">5-Day Monitoring</h4>
+        <ul>
+        {{monitoring_actions}}
+        </ul>
+
+        <p style="color:#000000; font-size:12px;">Sources: NWS local offices, National Hurricane Center, NOAA.</p>
+        </div>
+    </div>
+</body>
+</html> 

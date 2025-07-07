@@ -1,0 +1,22 @@
+[
+    {"state": "Tennessee", "office": "Nashville", "code": "ohx"},
+    {"state": "Tennessee", "office": "Memphis", "code": "meg"},
+    {"state": "Tennessee", "office": "Morristown", "code": "mrx"},
+    {"state": "Mississippi", "office": "Jackson", "code": "jan"},
+    {"state": "Alabama", "office": "Birmingham", "code": "bmx"},
+    {"state": "Alabama", "office": "Mobile", "code": "mob"},
+    {"state": "Alabama", "office": "Huntsville", "code": "hun"},
+    {"state": "Georgia", "office": "Atlanta", "code": "ffc"},
+    {"state": "Georgia", "office": "Jacksonville", "code": "jax"},
+    {"state": "Florida", "office": "Tallahassee", "code": "tae"},
+    {"state": "Florida", "office": "Tampa Bay", "code": "tbw"},
+    {"state": "Florida", "office": "Miami", "code": "mfl"},
+    {"state": "Florida", "office": "Melbourne", "code": "mlb"},
+    {"state": "North Carolina", "office": "Raleigh", "code": "rah"},
+    {"state": "North Carolina", "office": "Wilmington", "code": "ilm"},
+    {"state": "North Carolina", "office": "Newport/Morehead City", "code": "mhx"},
+    {"state": "South Carolina", "office": "Charleston", "code": "chs"},
+    {"state": "South Carolina", "office": "Greenville-Spartanburg", "code": "gsp"},
+    {"state": "South Carolina", "office": "Columbia", "code": "cae"},
+    {"state": "U.S. Virgin Islands", "office": "San Juan", "code": "sju"}
+] 
