@@ -1,4 +1,30 @@
 /* Basic styles for the weather report */
 body {
     font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.desktop-view {
+    display: block; /* Show by default on large screens */
+}
+
+.mobile-view {
+    display: none;  /* Hide by default on large screens */
+}
+
+/* Media Query for mobile devices */
+@media screen and (max-width: 768px) {
+    .desktop-view {
+        display: none;  /* Hide on small screens */
+    }
+
+    .mobile-view {
+        display: block; /* Show on small screens */
+    }
+
+    body {
+        padding: 10px;
+    }
 } 
