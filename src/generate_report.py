@@ -183,6 +183,7 @@ def main():
         "update_time": now_eastern.strftime("%I:%M %p %Z"),
         "start_date": now_eastern.strftime("%B %d, %Y"),
         "end_date": (now_eastern + timedelta(days=4)).strftime("%B %d, %Y"),
+        "now_timestamp": int(datetime.now().timestamp())
     }
 
     nws_discussions = weather_data.get('nws_discussions', {})
