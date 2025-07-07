@@ -171,7 +171,11 @@ def main():
         print("WARNING: OPENAI_API_KEY not found. Report will use placeholder text.")
         print("Please create a .env file and add your key, e.g., OPENAI_API_KEY='your-key-here'")
 
-    env = Environment(loader=FileSystemLoader(_template_dir), autoescape=True)
+    # --- Template Setup ---
+    # Use an absolute path for the template directory to avoid ambiguity
+    template_dir_abs = os.path.join(_project_root, 'template')
+    env = Environment(loader=FileSystemLoader(template_dir_abs), autoescape=True)
+    
     base_template = env.get_template('base_template.html')
     desktop_template = env.get_template('desktop_template.html')
     mobile_template = env.get_template('mobile_template.html')
