@@ -83,66 +83,62 @@
     },
     "nws_alerts": [
         {
-            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.37146e2479f11c2c724e62c3859b46ab3e18477e.001.1",
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.0280261e8fc10b3cd757d12bc6e0e662dc3de8b9.001.1",
             "type": "Feature",
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -86.73,
-                            36.03
+                            -89.42,
+                            34.71
                         ],
                         [
-                            -87.11,
-                            36
+                            -89.45,
+                            34.89
                         ],
                         [
-                            -87.17,
-                            36.13
+                            -89.05,
+                            34.9799999
                         ],
                         [
-                            -87.17,
-                            36.150000000000006
+                            -89,
+                            34.720000000000006
                         ],
                         [
-                            -86.83,
-                            36.260000000000005
-                        ],
-                        [
-                            -86.73,
-                            36.03
+                            -89.42,
+                            34.71
                         ]
                     ]
                 ]
             },
             "properties": {
-                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.37146e2479f11c2c724e62c3859b46ab3e18477e.001.1",
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.0280261e8fc10b3cd757d12bc6e0e662dc3de8b9.001.1",
                 "@type": "wx:Alert",
-                "id": "urn:oid:2.49.0.1.840.0.37146e2479f11c2c724e62c3859b46ab3e18477e.001.1",
-                "areaDesc": "Cheatham; Davidson; Williamson",
+                "id": "urn:oid:2.49.0.1.840.0.0280261e8fc10b3cd757d12bc6e0e662dc3de8b9.001.1",
+                "areaDesc": "Marshall; Benton; Tippah",
                 "geocode": {
                     "SAME": [
-                        "047021",
-                        "047037",
-                        "047187"
+                        "028093",
+                        "028009",
+                        "028139"
                     ],
                     "UGC": [
-                        "TNZ026",
-                        "TNZ027",
-                        "TNZ059"
+                        "MSZ002",
+                        "MSZ003",
+                        "MSZ004"
                     ]
                 },
                 "affectedZones": [
-                    "https://api.weather.gov/zones/forecast/TNZ026",
-                    "https://api.weather.gov/zones/forecast/TNZ027",
-                    "https://api.weather.gov/zones/forecast/TNZ059"
+                    "https://api.weather.gov/zones/forecast/MSZ002",
+                    "https://api.weather.gov/zones/forecast/MSZ003",
+                    "https://api.weather.gov/zones/forecast/MSZ004"
                 ],
                 "references": [],
-                "sent": "2025-07-07T14:48:00-05:00",
-                "effective": "2025-07-07T14:48:00-05:00",
-                "onset": "2025-07-07T14:48:00-05:00",
-                "expires": "2025-07-07T15:15:00-05:00",
+                "sent": "2025-07-07T15:58:00-05:00",
+                "effective": "2025-07-07T15:58:00-05:00",
+                "onset": "2025-07-07T15:58:00-05:00",
+                "expires": "2025-07-07T16:30:00-05:00",
                 "ends": null,
                 "status": "Actual",
                 "messageType": "Alert",
@@ -152,152 +148,29 @@
                 "urgency": "Expected",
                 "event": "Special Weather Statement",
                 "sender": "w-nws.webmaster@noaa.gov",
-                "senderName": "NWS Nashville TN",
-                "headline": "Special Weather Statement issued July 7 at 2:48PM CDT by NWS Nashville TN",
-                "description": "At 248 PM CDT, Doppler radar was tracking a strong thunderstorm over\nPegram, or 11 miles south of Ashland City, moving east at 30 mph.\n\nHAZARD...Wind gusts up to 40 mph.\n\nSOURCE...Radar indicated.\n\nIMPACT...Gusty winds could knock down tree limbs and blow around\nunsecured objects.\n\nLocations impacted include...\nBrentwood, Forest Hills, Oak Hill, Belle Meade, Kingston Springs,\nPegram, Bellevue, Berry Hill, and Bells Bend.\n\nThis includes the following highways...\nInterstate 40 between mile markers 186 and 209.\nInterstate 65 between mile markers 74 and 80, and near mile marker\n85.",
-                "instruction": "If outdoors, consider seeking shelter inside a building.\n\nTorrential rainfall is also occurring with this storm and may lead to\nlocalized flooding. Do not drive your vehicle through flooded\nroadways.\n\nFrequent cloud to ground lightning is occurring with this storm.\nLightning can strike 10 miles away from a thunderstorm. Seek a safe\nshelter inside a building or vehicle.",
-                "response": "Execute",
-                "parameters": {
-                    "AWIPSidentifier": [
-                        "SPSOHX"
-                    ],
-                    "WMOidentifier": [
-                        "WWUS84 KOHX 071948"
-                    ],
-                    "NWSheadline": [
-                        "A STRONG THUNDERSTORM WILL IMPACT SOUTHWESTERN DAVIDSON...NORTH CENTRAL WILLIAMSON AND SOUTHEASTERN CHEATHAM COUNTIES THROUGH 315 PM CDT"
-                    ],
-                    "eventMotionDescription": [
-                        "2025-07-07T19:48:00-00:00...storm...253DEG...26KT...36.08,-87.06"
-                    ],
-                    "maxWindGust": [
-                        "40 MPH"
-                    ],
-                    "maxHailSize": [
-                        "0.00"
-                    ],
-                    "BLOCKCHANNEL": [
-                        "EAS",
-                        "NWEM",
-                        "CMAS"
-                    ],
-                    "EAS-ORG": [
-                        "WXR"
-                    ]
-                },
-                "scope": "Public",
-                "code": "IPAWSv1.0",
-                "language": "en-US",
-                "web": "http://www.weather.gov",
-                "eventCode": {
-                    "SAME": [
-                        "SPS"
-                    ],
-                    "NationalWeatherService": [
-                        "SPS"
-                    ]
-                }
-            }
-        },
-        {
-            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.6d939427805cbf5087156e388f62e4a4e833cbdb.001.1",
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -80.81,
-                            28
-                        ],
-                        [
-                            -80.86,
-                            28.15
-                        ],
-                        [
-                            -80.86,
-                            28.169999999999998
-                        ],
-                        [
-                            -80.5699999,
-                            28.31
-                        ],
-                        [
-                            -80.56,
-                            28.29
-                        ],
-                        [
-                            -80.56,
-                            28.189999999999998
-                        ],
-                        [
-                            -80.5,
-                            28.049999999999997
-                        ],
-                        [
-                            -80.81,
-                            28
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.6d939427805cbf5087156e388f62e4a4e833cbdb.001.1",
-                "@type": "wx:Alert",
-                "id": "urn:oid:2.49.0.1.840.0.6d939427805cbf5087156e388f62e4a4e833cbdb.001.1",
-                "areaDesc": "Inland Southern Brevard; Mainland Southern Brevard; Southern Brevard Barrier Islands",
-                "geocode": {
-                    "SAME": [
-                        "012009"
-                    ],
-                    "UGC": [
-                        "FLZ547",
-                        "FLZ647",
-                        "FLZ747"
-                    ]
-                },
-                "affectedZones": [
-                    "https://api.weather.gov/zones/forecast/FLZ547",
-                    "https://api.weather.gov/zones/forecast/FLZ647",
-                    "https://api.weather.gov/zones/forecast/FLZ747"
-                ],
-                "references": [],
-                "sent": "2025-07-07T15:46:00-04:00",
-                "effective": "2025-07-07T15:46:00-04:00",
-                "onset": "2025-07-07T15:46:00-04:00",
-                "expires": "2025-07-07T16:30:00-04:00",
-                "ends": null,
-                "status": "Actual",
-                "messageType": "Alert",
-                "category": "Met",
-                "severity": "Moderate",
-                "certainty": "Observed",
-                "urgency": "Expected",
-                "event": "Special Weather Statement",
-                "sender": "w-nws.webmaster@noaa.gov",
-                "senderName": "NWS Melbourne FL",
-                "headline": "Special Weather Statement issued July 7 at 3:46PM EDT by NWS Melbourne FL",
-                "description": "At 345 PM EDT, Doppler radar was tracking a strong thunderstorm over\nCamp Holly Fish Camp, moving east at 20 mph.\n\nHAZARD...Wind gusts up to 50 mph.\n\nSOURCE...Radar indicated.\n\nIMPACT...Gusty winds could knock down tree limbs and blow around\nunsecured objects.\n\nLocations impacted include...\nPalm Bay, Melbourne, Satellite Beach, Indialantic, and Camp Holly\nFish Camp.",
+                "senderName": "NWS Memphis TN",
+                "headline": "Special Weather Statement issued July 7 at 3:58PM CDT by NWS Memphis TN",
+                "description": "At 358 PM CDT, Doppler radar was tracking a strong thunderstorm near\nHolly Springs, moving east at 15 mph.\n\nHAZARD...Wind gusts up to 50 mph and pea size hail.\n\nSOURCE...Radar indicated.\n\nIMPACT...Gusty winds could knock down tree limbs and blow around\nunsecured objects. Minor hail damage to vegetation is\npossible.\n\nLocations impacted include...\nHolly Springs, Lamar, Snow Lake Shores, Canaan, Gravestown, Ashland,\nBrody, Spring Hill, Hudsonville, Higdon, New Canaan, Whitten Town,\nAtway, Hamilton, and Bethel.",
                 "instruction": "If outdoors, consider seeking shelter inside a building.",
                 "response": "Execute",
                 "parameters": {
                     "AWIPSidentifier": [
-                        "SPSMLB"
+                        "SPSMEG"
                     ],
                     "WMOidentifier": [
-                        "WWUS82 KMLB 071946"
+                        "WWUS84 KMEG 072058"
                     ],
                     "NWSheadline": [
-                        "A STRONG THUNDERSTORM WILL IMPACT SOUTHEASTERN BREVARD COUNTY THROUGH 430 PM EDT"
+                        "A STRONG THUNDERSTORM WILL IMPACT NORTHEASTERN MARSHALL...WEST CENTRAL TIPPAH AND CENTRAL BENTON COUNTIES THROUGH 430 PM CDT"
                     ],
                     "eventMotionDescription": [
-                        "2025-07-07T19:45:00-00:00...storm...248DEG...17KT...28.11,-80.77"
+                        "2025-07-07T20:58:00-00:00...storm...261DEG...13KT...34.82,-89.35"
                     ],
                     "maxWindGust": [
                         "50 MPH"
                     ],
                     "maxHailSize": [
-                        "0.00"
+                        "0.25"
                     ],
                     "BLOCKCHANNEL": [
                         "EAS",
@@ -323,60 +196,59 @@
             }
         },
         {
-            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.0653a5ee3ed06f86785e7a95b96ebfb7dd2c980d.001.1",
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.b869b339ff88c47576c0ef7659d7a6df935eb1e7.001.1",
             "type": "Feature",
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -88.38,
-                            30.72
+                            -81.28,
+                            26.66
                         ],
                         [
-                            -88.2099999,
-                            30.799999999999997
+                            -80.92,
+                            26.62
                         ],
                         [
-                            -88.12,
-                            30.799999999999997
+                            -80.89,
+                            26.26
                         ],
                         [
-                            -88.06,
-                            30.639999999999997
+                            -81.26,
+                            26.28
                         ],
                         [
-                            -88.22,
-                            30.569999999999997
-                        ],
-                        [
-                            -88.38,
-                            30.72
+                            -81.28,
+                            26.66
                         ]
                     ]
                 ]
             },
             "properties": {
-                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.0653a5ee3ed06f86785e7a95b96ebfb7dd2c980d.001.1",
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.b869b339ff88c47576c0ef7659d7a6df935eb1e7.001.1",
                 "@type": "wx:Alert",
-                "id": "urn:oid:2.49.0.1.840.0.0653a5ee3ed06f86785e7a95b96ebfb7dd2c980d.001.1",
-                "areaDesc": "Mobile Central",
+                "id": "urn:oid:2.49.0.1.840.0.b869b339ff88c47576c0ef7659d7a6df935eb1e7.001.1",
+                "areaDesc": "Hendry; Inland Collier County",
                 "geocode": {
                     "SAME": [
-                        "001097"
+                        "012051",
+                        "012021"
                     ],
                     "UGC": [
-                        "ALZ263"
+                        "FLZ066",
+                        "FLZ070"
                     ]
                 },
                 "affectedZones": [
-                    "https://api.weather.gov/zones/forecast/ALZ263"
+                    "https://api.weather.gov/zones/forecast/FLZ066",
+                    "https://api.weather.gov/zones/forecast/FLZ070"
                 ],
                 "references": [],
-                "sent": "2025-07-07T14:44:00-05:00",
-                "effective": "2025-07-07T14:44:00-05:00",
-                "onset": "2025-07-07T14:44:00-05:00",
-                "expires": "2025-07-07T15:30:00-05:00",
+                "sent": "2025-07-07T16:51:00-04:00",
+                "effective": "2025-07-07T16:51:00-04:00",
+                "onset": "2025-07-07T16:51:00-04:00",
+                "expires": "2025-07-07T17:15:00-04:00",
                 "ends": null,
                 "status": "Actual",
                 "messageType": "Alert",
@@ -386,23 +258,310 @@
                 "urgency": "Expected",
                 "event": "Special Weather Statement",
                 "sender": "w-nws.webmaster@noaa.gov",
-                "senderName": "NWS Mobile AL",
-                "headline": "Special Weather Statement issued July 7 at 2:44PM CDT by NWS Mobile AL",
-                "description": "At 243 PM CDT, Doppler radar was tracking a strong thunderstorm near\nMobile Regional Airport, or near Midtown Mobile. This storm was\nnearly stationary.\n\nHAZARD...Wind gusts up to 40 mph and pea size hail.\n\nSOURCE...Radar indicated.\n\nIMPACT...Gusty winds could knock down tree limbs and blow around\nunsecured objects. Minor damage to outdoor objects is\npossible.\n\nLocations impacted include...\nMidtown Mobile, Tillmans Corner, Tanner Williams, I10 And I65, and\nMobile Regional Airport.",
+                "senderName": "NWS Miami FL",
+                "headline": "Special Weather Statement issued July 7 at 4:51PM EDT by NWS Miami FL",
+                "description": "At 451 PM EDT, National Weather Service meteorologists were tracking\nstrong thunderstorms along a line extending from near Hendry\nCorrectional to near Big Cypress Seminole Reservation. Movement was\nnorth at 10 mph.\n\nHAZARD...Wind gusts of 45 to 50 mph and pea size hail.\n\nSOURCE...Radar indicated.\n\nIMPACT...Gusty winds could knock down tree limbs and blow around\nunsecured objects. Minor damage to outdoor objects is\npossible.\n\nLocations impacted include...\nHendry Correctional, Devils Garden, and Big Cypress Seminole\nReservation.",
+                "instruction": "These winds can down small tree limbs and branches, and blow around\nunsecured small objects. Seek shelter in a safe building until the\nstorm passes.\n\nExcessive cloud to ground lightning is occurring with these storms.\nLightning can strike 10 miles away from a thunderstorm. Seek a safe\nshelter inside a building or vehicle.",
+                "response": "Execute",
+                "parameters": {
+                    "AWIPSidentifier": [
+                        "SPSMFL"
+                    ],
+                    "WMOidentifier": [
+                        "WWUS82 KMFL 072051"
+                    ],
+                    "NWSheadline": [
+                        "Strong thunderstorms will impact portions of northern Collier and southeastern Hendry Counties through 515 PM EDT"
+                    ],
+                    "eventMotionDescription": [
+                        "2025-07-07T20:51:00-00:00...storm...158DEG...10KT...26.38,-81.17 26.32,-81.04"
+                    ],
+                    "maxWindGust": [
+                        "50 MPH"
+                    ],
+                    "maxHailSize": [
+                        "0.25"
+                    ],
+                    "BLOCKCHANNEL": [
+                        "EAS",
+                        "NWEM",
+                        "CMAS"
+                    ],
+                    "EAS-ORG": [
+                        "WXR"
+                    ]
+                },
+                "scope": "Public",
+                "code": "IPAWSv1.0",
+                "language": "en-US",
+                "web": "http://www.weather.gov",
+                "eventCode": {
+                    "SAME": [
+                        "SPS"
+                    ],
+                    "NationalWeatherService": [
+                        "SPS"
+                    ]
+                }
+            }
+        },
+        {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.2fad76ef55b0da0cc8acaeb61f522b4efa754f26.001.1",
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -87.94,
+                            35.87
+                        ],
+                        [
+                            -87.97,
+                            35.83
+                        ],
+                        [
+                            -87.98,
+                            35.769999999999996
+                        ],
+                        [
+                            -88.03,
+                            35.72
+                        ],
+                        [
+                            -88.02,
+                            35.659999899999995
+                        ],
+                        [
+                            -88.03999999999999,
+                            35.62
+                        ],
+                        [
+                            -88.00999999999999,
+                            35.58
+                        ],
+                        [
+                            -88.11999999999999,
+                            35.449999999999996
+                        ],
+                        [
+                            -88.35,
+                            35.589999999999996
+                        ],
+                        [
+                            -88.03999999999999,
+                            36.019999999999996
+                        ],
+                        [
+                            -87.99999999999999,
+                            36.019999999999996
+                        ],
+                        [
+                            -87.99999999999999,
+                            35.99999999999999
+                        ],
+                        [
+                            -88.01999999999998,
+                            35.96999999999999
+                        ],
+                        [
+                            -88.01999999999998,
+                            35.94999999999999
+                        ],
+                        [
+                            -87.97999999999998,
+                            35.93999999999999
+                        ],
+                        [
+                            -87.92999999999998,
+                            35.93999999999999
+                        ],
+                        [
+                            -87.92999999999998,
+                            35.90999989999999
+                        ],
+                        [
+                            -87.94,
+                            35.87
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.2fad76ef55b0da0cc8acaeb61f522b4efa754f26.001.1",
+                "@type": "wx:Alert",
+                "id": "urn:oid:2.49.0.1.840.0.2fad76ef55b0da0cc8acaeb61f522b4efa754f26.001.1",
+                "areaDesc": "Benton; Henderson; Decatur",
+                "geocode": {
+                    "SAME": [
+                        "047005",
+                        "047077",
+                        "047039"
+                    ],
+                    "UGC": [
+                        "TNZ022",
+                        "TNZ054",
+                        "TNZ055"
+                    ]
+                },
+                "affectedZones": [
+                    "https://api.weather.gov/zones/forecast/TNZ022",
+                    "https://api.weather.gov/zones/forecast/TNZ054",
+                    "https://api.weather.gov/zones/forecast/TNZ055"
+                ],
+                "references": [],
+                "sent": "2025-07-07T15:50:00-05:00",
+                "effective": "2025-07-07T15:50:00-05:00",
+                "onset": "2025-07-07T15:50:00-05:00",
+                "expires": "2025-07-07T16:15:00-05:00",
+                "ends": null,
+                "status": "Actual",
+                "messageType": "Alert",
+                "category": "Met",
+                "severity": "Moderate",
+                "certainty": "Observed",
+                "urgency": "Expected",
+                "event": "Special Weather Statement",
+                "sender": "w-nws.webmaster@noaa.gov",
+                "senderName": "NWS Memphis TN",
+                "headline": "Special Weather Statement issued July 7 at 3:50PM CDT by NWS Memphis TN",
+                "description": "At 349 PM CDT, Doppler radar was tracking a strong thunderstorm over\nDarden, or 7 miles southeast of Natchez Trace State Forest, moving\nnortheast at 40 mph.\n\nHAZARD...Winds in excess of 30 mph and pea size hail.\n\nSOURCE...Radar indicated.\n\nIMPACT...Gusty winds could knock down tree limbs and blow around\nunsecured objects. Minor hail damage to vegetation is\npossible.\n\nLocations impacted include...\nCamden, Parsons, Decaturville, Darden, Scotts Hill, Perryville,\nBusseltown, Jeannette, Warrens Bluff, Wilkinstown, I-40 Near The\nTennessee River, Haney, Rock Hill, Holladay, Mount Tabor, Garrett,\nSugar Tree, Beacon, Hickory Forks, and Largo.",
                 "instruction": "If outdoors, consider seeking shelter inside a building.",
                 "response": "Execute",
                 "parameters": {
                     "AWIPSidentifier": [
-                        "SPSMOB"
+                        "SPSMEG"
                     ],
                     "WMOidentifier": [
-                        "WWUS84 KMOB 071944"
+                        "WWUS84 KMEG 072050"
                     ],
                     "NWSheadline": [
-                        "A STRONG THUNDERSTORM WILL IMPACT CENTRAL MOBILE COUNTY THROUGH 330 PM CDT"
+                        "A STRONG THUNDERSTORM WILL IMPACT EAST CENTRAL HENDERSON... SOUTHEASTERN BENTON AND DECATUR COUNTIES THROUGH 415 PM CDT"
                     ],
                     "eventMotionDescription": [
-                        "2025-07-07T19:43:00-00:00...storm...148DEG...3KT...30.67,-88.19"
+                        "2025-07-07T20:49:00-00:00...storm...208DEG...37KT...35.64,-88.21"
+                    ],
+                    "maxWindGust": [
+                        "30 MPH"
+                    ],
+                    "maxHailSize": [
+                        "0.25"
+                    ],
+                    "BLOCKCHANNEL": [
+                        "EAS",
+                        "NWEM",
+                        "CMAS"
+                    ],
+                    "EAS-ORG": [
+                        "WXR"
+                    ]
+                },
+                "scope": "Public",
+                "code": "IPAWSv1.0",
+                "language": "en-US",
+                "web": "http://www.weather.gov",
+                "eventCode": {
+                    "SAME": [
+                        "SPS"
+                    ],
+                    "NationalWeatherService": [
+                        "SPS"
+                    ]
+                }
+            }
+        },
+        {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3be245907a3af90146ad432bf8062870637d98ab.001.1",
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -90.44,
+                            31.67
+                        ],
+                        [
+                            -90.31,
+                            31.700000000000003
+                        ],
+                        [
+                            -90.26,
+                            31.700000000000003
+                        ],
+                        [
+                            -90.25,
+                            31.710000000000004
+                        ],
+                        [
+                            -90.14,
+                            31.740000000000006
+                        ],
+                        [
+                            -90.14,
+                            31.490000000000006
+                        ],
+                        [
+                            -90.3,
+                            31.420000000000005
+                        ],
+                        [
+                            -90.44,
+                            31.67
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3be245907a3af90146ad432bf8062870637d98ab.001.1",
+                "@type": "wx:Alert",
+                "id": "urn:oid:2.49.0.1.840.0.3be245907a3af90146ad432bf8062870637d98ab.001.1",
+                "areaDesc": "Lincoln; Lawrence",
+                "geocode": {
+                    "SAME": [
+                        "028085",
+                        "028077"
+                    ],
+                    "UGC": [
+                        "MSZ062",
+                        "MSZ063"
+                    ]
+                },
+                "affectedZones": [
+                    "https://api.weather.gov/zones/forecast/MSZ062",
+                    "https://api.weather.gov/zones/forecast/MSZ063"
+                ],
+                "references": [],
+                "sent": "2025-07-07T15:43:00-05:00",
+                "effective": "2025-07-07T15:43:00-05:00",
+                "onset": "2025-07-07T15:43:00-05:00",
+                "expires": "2025-07-07T16:30:00-05:00",
+                "ends": null,
+                "status": "Actual",
+                "messageType": "Alert",
+                "category": "Met",
+                "severity": "Moderate",
+                "certainty": "Observed",
+                "urgency": "Expected",
+                "event": "Special Weather Statement",
+                "sender": "w-nws.webmaster@noaa.gov",
+                "senderName": "NWS Jackson MS",
+                "headline": "Special Weather Statement issued July 7 at 3:43PM CDT by NWS Jackson MS",
+                "description": "At 342 PM CDT, Doppler radar was tracking a strong thunderstorm near\nEast Lincoln, or 7 miles west of Monticello, moving north at 10 mph.\n\nHAZARD...Wind gusts up to 40 mph and pea size hail.\n\nSOURCE...Radar indicated.\n\nIMPACT...Gusty winds could knock down tree limbs and blow around\nunsecured objects. Minor hail damage to vegetation is\npossible.\n\nThis storm will remain over mainly rural areas of northeastern\nLincoln and northwestern Lawrence Counties.",
+                "instruction": "If outdoors, consider seeking shelter inside a building.",
+                "response": "Execute",
+                "parameters": {
+                    "AWIPSidentifier": [
+                        "SPSJAN"
+                    ],
+                    "WMOidentifier": [
+                        "WWUS84 KJAN 072043"
+                    ],
+                    "NWSheadline": [
+                        "A STRONG THUNDERSTORM WILL IMPACT NORTHEASTERN LINCOLN AND NORTHWESTERN LAWRENCE COUNTIES THROUGH 430 PM CDT"
+                    ],
+                    "eventMotionDescription": [
+                        "2025-07-07T20:42:00-00:00...storm...163DEG...8KT...31.52,-90.23"
                     ],
                     "maxWindGust": [
                         "40 MPH"
@@ -434,97 +593,95 @@
             }
         },
         {
-            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.12f9ee8e91fcf9840f1bf1c56841ed0a38bb9d32.001.1",
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.dabb64e1d4d1db3e7776540c6769437b8262f06d.001.1",
             "type": "Feature",
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -80.77,
-                            25.92
+                            -88.2,
+                            30.7
                         ],
                         [
-                            -80.88,
-                            25.82
+                            -88.16,
+                            30.71
                         ],
                         [
-                            -81.05,
-                            25.97
+                            -88.14,
+                            30.7
                         ],
                         [
-                            -80.85,
-                            26.099999999999998
+                            -88.13,
+                            30.669999999999998
                         ],
                         [
-                            -80.77,
-                            25.92
+                            -88.14999999999999,
+                            30.639999999999997
+                        ],
+                        [
+                            -88.19999999999999,
+                            30.639999999999997
+                        ],
+                        [
+                            -88.21999999999998,
+                            30.669999999999998
+                        ],
+                        [
+                            -88.20999989999999,
+                            30.689999999999998
+                        ],
+                        [
+                            -88.2,
+                            30.7
                         ]
                     ]
                 ]
             },
             "properties": {
-                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.12f9ee8e91fcf9840f1bf1c56841ed0a38bb9d32.001.1",
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.dabb64e1d4d1db3e7776540c6769437b8262f06d.001.1",
                 "@type": "wx:Alert",
-                "id": "urn:oid:2.49.0.1.840.0.12f9ee8e91fcf9840f1bf1c56841ed0a38bb9d32.001.1",
-                "areaDesc": "Broward, FL; Collier, FL; Miami-Dade, FL",
+                "id": "urn:oid:2.49.0.1.840.0.dabb64e1d4d1db3e7776540c6769437b8262f06d.001.1",
+                "areaDesc": "Mobile, AL",
                 "geocode": {
                     "SAME": [
-                        "012011",
-                        "012021",
-                        "012086"
+                        "001097"
                     ],
                     "UGC": [
-                        "FLC011",
-                        "FLC021",
-                        "FLC086"
+                        "ALC097"
                     ]
                 },
                 "affectedZones": [
-                    "https://api.weather.gov/zones/county/FLC011",
-                    "https://api.weather.gov/zones/county/FLC021",
-                    "https://api.weather.gov/zones/county/FLC086"
+                    "https://api.weather.gov/zones/county/ALC097"
                 ],
                 "references": [],
-                "sent": "2025-07-07T15:43:00-04:00",
-                "effective": "2025-07-07T15:43:00-04:00",
-                "onset": "2025-07-07T15:43:00-04:00",
-                "expires": "2025-07-07T16:15:00-04:00",
-                "ends": "2025-07-07T16:15:00-04:00",
+                "sent": "2025-07-07T15:11:00-05:00",
+                "effective": "2025-07-07T15:11:00-05:00",
+                "onset": "2025-07-07T15:11:00-05:00",
+                "expires": "2025-07-07T18:15:00-05:00",
+                "ends": "2025-07-07T18:15:00-05:00",
                 "status": "Actual",
                 "messageType": "Alert",
                 "category": "Met",
                 "severity": "Severe",
-                "certainty": "Observed",
+                "certainty": "Likely",
                 "urgency": "Immediate",
-                "event": "Severe Thunderstorm Warning",
+                "event": "Flash Flood Warning",
                 "sender": "w-nws.webmaster@noaa.gov",
-                "senderName": "NWS Miami FL",
-                "headline": "Severe Thunderstorm Warning issued July 7 at 3:43PM EDT until July 7 at 4:15PM EDT by NWS Miami FL",
-                "description": "SVRMFL\n\nThe National Weather Service in Miami has issued a\n\n* Severe Thunderstorm Warning for...\nEastern Collier County in southwestern Florida...\nNorthern Miami-Dade County in southeastern Florida...\nSouthern Broward County in southeastern Florida...\n\n* Until 415 PM EDT.\n\n* At 343 PM EDT, a severe thunderstorm was located near Dade-Collier\nTraining Airport, or 31 miles east of Chokoloskee, moving northwest\nat 10 mph.\n\nHAZARD...60 mph wind gusts and penny size hail.\n\nSOURCE...Radar indicated.\n\nIMPACT...Expect damage to roofs, siding, and trees.\n\n* Locations impacted include...\nDade-Collier Training Airport and Big Cypress National Preserve.",
-                "instruction": "For your protection move to an interior room on the lowest floor of a\nbuilding.",
-                "response": "Shelter",
+                "senderName": "NWS Mobile AL",
+                "headline": "Flash Flood Warning issued July 7 at 3:11PM CDT until July 7 at 6:15PM CDT by NWS Mobile AL",
+                "description": "FFWMOB\n\nThe National Weather Service in Mobile has issued a\n\n* Flash Flood Warning for...\nCentral Mobile County in southwestern Alabama...\n\n* Until 615 PM CDT.\n\n* At 311 PM CDT, Doppler radar indicated thunderstorms producing\nheavy rain across the warned area. Between 2 and 4 inches of rain\nhave fallen. Additional rainfall amounts of 1 to 2 inches are\npossible in the warned area. Flash flooding is ongoing or expected\nto begin shortly.\n\nHAZARD...Flash flooding caused by thunderstorms.\n\nSOURCE...Radar.\n\nIMPACT...Flash flooding of small creeks and streams, urban\nareas, highways, streets and underpasses as well as\nother poor drainage and low-lying areas.\n\n* Some locations that will experience flash flooding include...\nWest Hill and Wheelerville.\n\nHeavy rain rates of 2 to 4 inches per hour over poor drainage urban\nareas will likely result in rather quick runoff and flash flooding.\nUse extreme caution driving around West Mobile.",
+                "instruction": "Turn around, don't drown when encountering flooded roads. Most flood\ndeaths occur in vehicles.",
+                "response": "Avoid",
                 "parameters": {
                     "AWIPSidentifier": [
-                        "SVRMFL"
+                        "FFWMOB"
                     ],
                     "WMOidentifier": [
-                        "WUUS52 KMFL 071943"
+                        "WGUS54 KMOB 072011"
                     ],
-                    "eventMotionDescription": [
-                        "2025-07-07T19:43:00-00:00...storm...155DEG...9KT...25.9,-80.86"
-                    ],
-                    "windThreat": [
+                    "flashFloodDetection": [
                         "RADAR INDICATED"
-                    ],
-                    "maxWindGust": [
-                        "60 MPH"
-                    ],
-                    "hailThreat": [
-                        "RADAR INDICATED"
-                    ],
-                    "maxHailSize": [
-                        "0.75"
                     ],
                     "BLOCKCHANNEL": [
                         "EAS",
@@ -535,10 +692,10 @@
                         "WXR"
                     ],
                     "VTEC": [
-                        "/O.NEW.KMFL.SV.W.0078.250707T1943Z-250707T2015Z/"
+                        "/O.NEW.KMOB.FF.W.0025.250707T2011Z-250707T2315Z/"
                     ],
                     "eventEndingTime": [
-                        "2025-07-07T16:15:00-04:00"
+                        "2025-07-07T18:15:00-05:00"
                     ]
                 },
                 "scope": "Public",
@@ -547,129 +704,127 @@
                 "web": "http://www.weather.gov",
                 "eventCode": {
                     "SAME": [
-                        "SVR"
+                        "FFW"
                     ],
                     "NationalWeatherService": [
-                        "SVW"
+                        "FFW"
                     ]
                 }
             }
         },
         {
-            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.cbb063bed220f8c7e11aea2cd7ed7ba0c8915a3b.001.1",
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.fde94bce09d61b580664fcd94f66676f4f139d0b.001.1",
             "type": "Feature",
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -84.7099999,
-                            35.9
+                            -88.26,
+                            30.67
                         ],
                         [
-                            -84.73,
-                            35.86
+                            -88.27000000000001,
+                            30.71
                         ],
                         [
-                            -84.76,
-                            35.839999999999996
+                            -88.24000000000001,
+                            30.75
                         ],
                         [
-                            -84.77000000000001,
-                            35.83
+                            -88.19000000000001,
+                            30.76
                         ],
                         [
-                            -84.80000000000001,
-                            35.82
+                            -88.15,
+                            30.740000000000002
                         ],
                         [
-                            -84.84000000000002,
-                            35.8
+                            -88.13000000000001,
+                            30.720000000000002
                         ],
                         [
-                            -84.92000000000002,
-                            35.86
+                            -88.12,
+                            30.67
                         ],
                         [
-                            -84.78000000000002,
-                            36.05
+                            -88.14,
+                            30.630000000000003
                         ],
                         [
-                            -84.72000000000001,
-                            36
+                            -88.2099999,
+                            30.62
                         ],
                         [
-                            -84.68,
-                            35.9099999
+                            -88.23,
+                            30.64
                         ],
                         [
-                            -84.7099999,
-                            35.9
+                            -88.24000000000001,
+                            30.650000000000002
+                        ],
+                        [
+                            -88.26,
+                            30.67
                         ]
                     ]
                 ]
             },
             "properties": {
-                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.cbb063bed220f8c7e11aea2cd7ed7ba0c8915a3b.001.1",
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.fde94bce09d61b580664fcd94f66676f4f139d0b.001.1",
                 "@type": "wx:Alert",
-                "id": "urn:oid:2.49.0.1.840.0.cbb063bed220f8c7e11aea2cd7ed7ba0c8915a3b.001.1",
-                "areaDesc": "Cumberland",
+                "id": "urn:oid:2.49.0.1.840.0.fde94bce09d61b580664fcd94f66676f4f139d0b.001.1",
+                "areaDesc": "Mobile, AL",
                 "geocode": {
                     "SAME": [
-                        "047035"
+                        "001097"
                     ],
                     "UGC": [
-                        "TNZ066"
+                        "ALC097"
                     ]
                 },
                 "affectedZones": [
-                    "https://api.weather.gov/zones/forecast/TNZ066"
+                    "https://api.weather.gov/zones/county/ALC097"
                 ],
                 "references": [],
-                "sent": "2025-07-07T14:29:00-05:00",
-                "effective": "2025-07-07T14:29:00-05:00",
-                "onset": "2025-07-07T14:29:00-05:00",
-                "expires": "2025-07-07T15:00:00-05:00",
-                "ends": null,
+                "sent": "2025-07-07T15:00:00-05:00",
+                "effective": "2025-07-07T15:00:00-05:00",
+                "onset": "2025-07-07T15:00:00-05:00",
+                "expires": "2025-07-07T18:00:00-05:00",
+                "ends": "2025-07-07T18:00:00-05:00",
                 "status": "Actual",
                 "messageType": "Alert",
                 "category": "Met",
-                "severity": "Moderate",
-                "certainty": "Observed",
+                "severity": "Minor",
+                "certainty": "Likely",
                 "urgency": "Expected",
-                "event": "Special Weather Statement",
+                "event": "Flood Advisory",
                 "sender": "w-nws.webmaster@noaa.gov",
-                "senderName": "NWS Nashville TN",
-                "headline": "Special Weather Statement issued July 7 at 2:29PM CDT by NWS Nashville TN",
-                "description": "At 229 PM CDT, Doppler radar was tracking a strong thunderstorm 7\nmiles west of Rockwood, moving northeast at 20 mph.\n\nHAZARD...Wind gusts up to 40 mph and half inch hail.\n\nSOURCE...Radar indicated.\n\nIMPACT...Gusty winds could knock down tree limbs and blow around\nunsecured objects. Minor hail damage to vegetation is\npossible.\n\nLocations impacted include...\nCrab Orchard.\n\nThis includes Interstate 40 between mile markers 329 and 339.",
-                "instruction": "If outdoors, consider seeking shelter inside a building.\n\nTorrential rainfall is also occurring with this storm and may lead to\nlocalized flooding. Do not drive your vehicle through flooded\nroadways.\n\nFrequent cloud to ground lightning is occurring with this storm.\nLightning can strike 10 miles away from a thunderstorm. Seek a safe\nshelter inside a building or vehicle.",
-                "response": "Execute",
+                "senderName": "NWS Mobile AL",
+                "headline": "Flood Advisory issued July 7 at 3:00PM CDT until July 7 at 6:00PM CDT by NWS Mobile AL",
+                "description": "* WHAT...Flooding caused by excessive rainfall is expected.\n\n* WHERE...A portion of southwest Alabama, including the following\ncounty, Mobile.\n\n* WHEN...Until 600 PM CDT.\n\n* IMPACTS...Minor flooding in low-lying and poor drainage areas.\n\n* ADDITIONAL DETAILS...\n- At 300 PM CDT, Doppler radar indicated heavy rain due to\nthunderstorms. Minor flooding is ongoing or expected to begin\nshortly in the advisory area. Between 1 and 3 inches of rain\nhave fallen.\n- Additional rainfall amounts up to 1 inch are expected over\nthe area. This additional rain will result in minor flooding.\n- Some locations that will experience flooding include...\nMidtown Mobile, Mobile Regional Airport, Wheelerville, West\nHill, Orchard and Forest Hill.\n- http://www.weather.gov/safety/flood",
+                "instruction": "Turn around, don't drown when encountering flooded roads. Most flood\ndeaths occur in vehicles.",
+                "response": "Avoid",
                 "parameters": {
                     "AWIPSidentifier": [
-                        "SPSOHX"
+                        "FLSMOB"
                     ],
                     "WMOidentifier": [
-                        "WWUS84 KOHX 071929"
+                        "WGUS84 KMOB 072000"
                     ],
                     "NWSheadline": [
-                        "A STRONG THUNDERSTORM WILL IMPACT SOUTHEASTERN CUMBERLAND COUNTY THROUGH 300 PM CDT"
-                    ],
-                    "eventMotionDescription": [
-                        "2025-07-07T19:29:00-00:00...storm...223DEG...17KT...35.87,-84.8"
-                    ],
-                    "maxWindGust": [
-                        "40 MPH"
-                    ],
-                    "maxHailSize": [
-                        "0.50"
+                        "FLOOD ADVISORY IN EFFECT UNTIL 6 PM CDT THIS EVENING"
                     ],
                     "BLOCKCHANNEL": [
                         "EAS",
                         "NWEM",
                         "CMAS"
                     ],
-                    "EAS-ORG": [
-                        "WXR"
+                    "VTEC": [
+                        "/O.NEW.KMOB.FA.Y.0065.250707T2000Z-250707T2300Z/"
+                    ],
+                    "eventEndingTime": [
+                        "2025-07-07T18:00:00-05:00"
                     ]
                 },
                 "scope": "Public",
@@ -678,274 +833,10 @@
                 "web": "http://www.weather.gov",
                 "eventCode": {
                     "SAME": [
-                        "SPS"
+                        "NWS"
                     ],
                     "NationalWeatherService": [
-                        "SPS"
-                    ]
-                }
-            }
-        },
-        {
-            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3c8be9657aba015635ba3e7b953ad55719116059.001.1",
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -81.64,
-                            26.25
-                        ],
-                        [
-                            -81.47,
-                            26.31
-                        ],
-                        [
-                            -81.33,
-                            26.11
-                        ],
-                        [
-                            -81.59,
-                            26.11
-                        ],
-                        [
-                            -81.64,
-                            26.25
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3c8be9657aba015635ba3e7b953ad55719116059.001.1",
-                "@type": "wx:Alert",
-                "id": "urn:oid:2.49.0.1.840.0.3c8be9657aba015635ba3e7b953ad55719116059.001.1",
-                "areaDesc": "Inland Collier County",
-                "geocode": {
-                    "SAME": [
-                        "012021"
-                    ],
-                    "UGC": [
-                        "FLZ070"
-                    ]
-                },
-                "affectedZones": [
-                    "https://api.weather.gov/zones/forecast/FLZ070"
-                ],
-                "references": [],
-                "sent": "2025-07-07T15:28:00-04:00",
-                "effective": "2025-07-07T15:28:00-04:00",
-                "onset": "2025-07-07T15:28:00-04:00",
-                "expires": "2025-07-07T16:00:00-04:00",
-                "ends": null,
-                "status": "Actual",
-                "messageType": "Alert",
-                "category": "Met",
-                "severity": "Moderate",
-                "certainty": "Observed",
-                "urgency": "Expected",
-                "event": "Special Weather Statement",
-                "sender": "w-nws.webmaster@noaa.gov",
-                "senderName": "NWS Miami FL",
-                "headline": "Special Weather Statement issued July 7 at 3:28PM EDT by NWS Miami FL",
-                "description": "At 328 PM EDT, National Weather Service meteorologists were tracking\na strong thunderstorm near Golden Gate Estates, moving southeast at\n15 mph.\n\nHAZARD...Wind gusts of 45 to 50 mph and pea size hail.\n\nSOURCE...Radar indicated.\n\nIMPACT...Gusty winds could knock down tree limbs and blow around\nunsecured objects. Minor damage to outdoor objects is\npossible.\n\nLocations impacted include...\nGolden Gate Estates and Intersection I-75 And Everglades Blvd.",
-                "instruction": "These winds can down small tree limbs and branches, and blow around\nunsecured small objects. Seek shelter in a safe building until the\nstorm passes.\n\nFrequent cloud to ground lightning is occurring with this storm.\nLightning can strike 10 miles away from a thunderstorm. Seek a safe\nshelter inside a building or vehicle.",
-                "response": "Execute",
-                "parameters": {
-                    "AWIPSidentifier": [
-                        "SPSMFL"
-                    ],
-                    "WMOidentifier": [
-                        "WWUS82 KMFL 071928"
-                    ],
-                    "NWSheadline": [
-                        "A strong thunderstorm will impact portions of west central Collier County through 400 PM EDT"
-                    ],
-                    "eventMotionDescription": [
-                        "2025-07-07T19:28:00-00:00...storm...328DEG...11KT...26.22,-81.53"
-                    ],
-                    "maxWindGust": [
-                        "50 MPH"
-                    ],
-                    "maxHailSize": [
-                        "0.25"
-                    ],
-                    "BLOCKCHANNEL": [
-                        "EAS",
-                        "NWEM",
-                        "CMAS"
-                    ],
-                    "EAS-ORG": [
-                        "WXR"
-                    ]
-                },
-                "scope": "Public",
-                "code": "IPAWSv1.0",
-                "language": "en-US",
-                "web": "http://www.weather.gov",
-                "eventCode": {
-                    "SAME": [
-                        "SPS"
-                    ],
-                    "NationalWeatherService": [
-                        "SPS"
-                    ]
-                }
-            }
-        },
-        {
-            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e254baaea0ef34442b4052923dde1ab7cfdc109.001.1",
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -86.16,
-                            30.38
-                        ],
-                        [
-                            -86.11999999999999,
-                            30.38
-                        ],
-                        [
-                            -86.10999999999999,
-                            30.39
-                        ],
-                        [
-                            -86.12999999999998,
-                            30.41
-                        ],
-                        [
-                            -86.11999999999998,
-                            30.42
-                        ],
-                        [
-                            -86.12999999999998,
-                            30.430000000000003
-                        ],
-                        [
-                            -86.11999999999998,
-                            30.430000000000003
-                        ],
-                        [
-                            -86.11999999999998,
-                            30.440000000000005
-                        ],
-                        [
-                            -86.02999999999997,
-                            30.530000000000005
-                        ],
-                        [
-                            -85.91999999999997,
-                            30.510000000000005
-                        ],
-                        [
-                            -85.86999999999998,
-                            30.380000000000006
-                        ],
-                        [
-                            -85.88999999999997,
-                            30.270000000000007
-                        ],
-                        [
-                            -86.04999999999997,
-                            30.290000000000006
-                        ],
-                        [
-                            -86.18999999999997,
-                            30.350000000000005
-                        ],
-                        [
-                            -86.16,
-                            30.38
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e254baaea0ef34442b4052923dde1ab7cfdc109.001.1",
-                "@type": "wx:Alert",
-                "id": "urn:oid:2.49.0.1.840.0.4e254baaea0ef34442b4052923dde1ab7cfdc109.001.1",
-                "areaDesc": "Central Walton; Washington; Inland Bay; South Walton; Coastal Bay",
-                "geocode": {
-                    "SAME": [
-                        "012131",
-                        "012133",
-                        "012005"
-                    ],
-                    "UGC": [
-                        "FLZ008",
-                        "FLZ010",
-                        "FLZ012",
-                        "FLZ108",
-                        "FLZ112"
-                    ]
-                },
-                "affectedZones": [
-                    "https://api.weather.gov/zones/forecast/FLZ008",
-                    "https://api.weather.gov/zones/forecast/FLZ010",
-                    "https://api.weather.gov/zones/forecast/FLZ012",
-                    "https://api.weather.gov/zones/forecast/FLZ108",
-                    "https://api.weather.gov/zones/forecast/FLZ112"
-                ],
-                "references": [],
-                "sent": "2025-07-07T15:00:00-04:00",
-                "effective": "2025-07-07T15:00:00-04:00",
-                "onset": "2025-07-07T15:00:00-04:00",
-                "expires": "2025-07-07T16:00:00-04:00",
-                "ends": null,
-                "status": "Actual",
-                "messageType": "Alert",
-                "category": "Met",
-                "severity": "Moderate",
-                "certainty": "Observed",
-                "urgency": "Expected",
-                "event": "Special Weather Statement",
-                "sender": "w-nws.webmaster@noaa.gov",
-                "senderName": "NWS Tallahassee FL",
-                "headline": "Special Weather Statement issued July 7 at 3:00PM EDT by NWS Tallahassee FL",
-                "description": "At 300 PM EDT/200 PM CDT/, Doppler radar was tracking a strong\nthunderstorm 15 miles east of Santa Rosa Beach, moving south at 5\nmph.\n\nHAZARD...Wind gusts up to 40 mph.\n\nSOURCE...Radar indicated.\n\nIMPACT...Gusty winds could knock down tree limbs and blow around\nunsecured objects.\n\nLocations impacted include...\nEbro, Bruce, Point Washington, Pine Log, Seminole Hills, Bunker, and\nLaird.",
-                "instruction": "If outdoors, consider seeking shelter inside a building.\n\nThis storm may intensify, so be certain to monitor local radio\nstations and available television stations for additional information\nand possible warnings from the National Weather Service.",
-                "response": "Execute",
-                "parameters": {
-                    "AWIPSidentifier": [
-                        "SPSTAE"
-                    ],
-                    "WMOidentifier": [
-                        "WWUS82 KTAE 071900"
-                    ],
-                    "NWSheadline": [
-                        "A STRONG THUNDERSTORM WILL IMPACT WEST CENTRAL BAY...SOUTHEASTERN WALTON AND SOUTHWESTERN WASHINGTON COUNTIES THROUGH 400 PM EDT/300 PM CDT/"
-                    ],
-                    "eventMotionDescription": [
-                        "2025-07-07T19:00:00-00:00...storm...017DEG...5KT...30.45,-86.0"
-                    ],
-                    "maxWindGust": [
-                        "40 MPH"
-                    ],
-                    "maxHailSize": [
-                        "0.00"
-                    ],
-                    "BLOCKCHANNEL": [
-                        "EAS",
-                        "NWEM",
-                        "CMAS"
-                    ],
-                    "EAS-ORG": [
-                        "WXR"
-                    ]
-                },
-                "scope": "Public",
-                "code": "IPAWSv1.0",
-                "language": "en-US",
-                "web": "http://www.weather.gov",
-                "eventCode": {
-                    "SAME": [
-                        "SPS"
-                    ],
-                    "NationalWeatherService": [
-                        "SPS"
+                        "FAY"
                     ]
                 }
             }
@@ -1830,6 +1721,91 @@
             }
         },
         {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.bb21801f193efa427d0c8b4102b1436e4f5172c1.002.1",
+            "type": "Feature",
+            "geometry": null,
+            "properties": {
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.bb21801f193efa427d0c8b4102b1436e4f5172c1.002.1",
+                "@type": "wx:Alert",
+                "id": "urn:oid:2.49.0.1.840.0.bb21801f193efa427d0c8b4102b1436e4f5172c1.002.1",
+                "areaDesc": "Coastal New Hanover",
+                "geocode": {
+                    "SAME": [
+                        "037129"
+                    ],
+                    "UGC": [
+                        "NCZ108"
+                    ]
+                },
+                "affectedZones": [
+                    "https://api.weather.gov/zones/forecast/NCZ108"
+                ],
+                "references": [
+                    {
+                        "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e91865acbd57c029dd0f50355a3952677d406184.001.1",
+                        "identifier": "urn:oid:2.49.0.1.840.0.e91865acbd57c029dd0f50355a3952677d406184.001.1",
+                        "sender": "w-nws.webmaster@noaa.gov",
+                        "sent": "2025-07-07T05:31:00-04:00"
+                    }
+                ],
+                "sent": "2025-07-07T13:11:00-04:00",
+                "effective": "2025-07-07T13:11:00-04:00",
+                "onset": "2025-07-07T13:11:00-04:00",
+                "expires": "2025-07-07T20:00:00-04:00",
+                "ends": "2025-07-07T20:00:00-04:00",
+                "status": "Actual",
+                "messageType": "Update",
+                "category": "Met",
+                "severity": "Moderate",
+                "certainty": "Likely",
+                "urgency": "Expected",
+                "event": "Rip Current Statement",
+                "sender": "w-nws.webmaster@noaa.gov",
+                "senderName": "NWS Wilmington NC",
+                "headline": "Rip Current Statement issued July 7 at 1:11PM EDT until July 7 at 8:00PM EDT by NWS Wilmington NC",
+                "description": "* WHAT...Dangerous rip currents expected. In addition, Carolina\nBeach Ocean Rescue is advising that there have been multiple\nshark sightings in the surf this afternoon.\n\n* WHERE...Coastal New Hanover Counties.\n\n* WHEN...From 6 AM EDT Monday through Monday evening.\n\n* IMPACTS...Rip currents can sweep even the best swimmers away\nfrom shore into deeper water.",
+                "instruction": "Swim near a lifeguard. If caught in a rip current, relax and\nfloat. Don't swim against the current. If able, swim in a\ndirection following the shoreline. If unable to escape, face the\nshore and call or wave for help.",
+                "response": "Avoid",
+                "parameters": {
+                    "AWIPSidentifier": [
+                        "CFWILM"
+                    ],
+                    "WMOidentifier": [
+                        "WHUS42 KILM 071711"
+                    ],
+                    "NWSheadline": [
+                        "HIGH RIP CURRENT RISK REMAINS IN EFFECT UNTIL 8 PM EDT THIS EVENING"
+                    ],
+                    "BLOCKCHANNEL": [
+                        "EAS",
+                        "NWEM",
+                        "CMAS"
+                    ],
+                    "VTEC": [
+                        "/O.CON.KILM.RP.S.0016.000000T0000Z-250708T0000Z/"
+                    ],
+                    "eventEndingTime": [
+                        "2025-07-07T20:00:00-04:00"
+                    ],
+                    "expiredReferences": [
+                        "w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.f2ed49ca1863251570de45966e73675c362d7f3e.004.2,2025-07-06T19:35:00-04:00"
+                    ]
+                },
+                "scope": "Public",
+                "code": "IPAWSv1.0",
+                "language": "en-US",
+                "web": "http://www.weather.gov",
+                "eventCode": {
+                    "SAME": [
+                        "NWS"
+                    ],
+                    "NationalWeatherService": [
+                        "RPS"
+                    ]
+                }
+            }
+        },
+        {
             "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.bb21801f193efa427d0c8b4102b1436e4f5172c1.001.1",
             "type": "Feature",
             "geometry": null,
@@ -1904,91 +1880,6 @@
                     ],
                     "expiredReferences": [
                         "w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.f2ed49ca1863251570de45966e73675c362d7f3e.004.2,2025-07-06T19:35:00-04:00 w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.f2ed49ca1863251570de45966e73675c362d7f3e.002.3,2025-07-06T19:35:00-04:00 w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.f2ed49ca1863251570de45966e73675c362d7f3e.001.3,2025-07-06T19:35:00-04:00"
-                    ]
-                },
-                "scope": "Public",
-                "code": "IPAWSv1.0",
-                "language": "en-US",
-                "web": "http://www.weather.gov",
-                "eventCode": {
-                    "SAME": [
-                        "NWS"
-                    ],
-                    "NationalWeatherService": [
-                        "RPS"
-                    ]
-                }
-            }
-        },
-        {
-            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.bb21801f193efa427d0c8b4102b1436e4f5172c1.002.1",
-            "type": "Feature",
-            "geometry": null,
-            "properties": {
-                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.bb21801f193efa427d0c8b4102b1436e4f5172c1.002.1",
-                "@type": "wx:Alert",
-                "id": "urn:oid:2.49.0.1.840.0.bb21801f193efa427d0c8b4102b1436e4f5172c1.002.1",
-                "areaDesc": "Coastal New Hanover",
-                "geocode": {
-                    "SAME": [
-                        "037129"
-                    ],
-                    "UGC": [
-                        "NCZ108"
-                    ]
-                },
-                "affectedZones": [
-                    "https://api.weather.gov/zones/forecast/NCZ108"
-                ],
-                "references": [
-                    {
-                        "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e91865acbd57c029dd0f50355a3952677d406184.001.1",
-                        "identifier": "urn:oid:2.49.0.1.840.0.e91865acbd57c029dd0f50355a3952677d406184.001.1",
-                        "sender": "w-nws.webmaster@noaa.gov",
-                        "sent": "2025-07-07T05:31:00-04:00"
-                    }
-                ],
-                "sent": "2025-07-07T13:11:00-04:00",
-                "effective": "2025-07-07T13:11:00-04:00",
-                "onset": "2025-07-07T13:11:00-04:00",
-                "expires": "2025-07-07T20:00:00-04:00",
-                "ends": "2025-07-07T20:00:00-04:00",
-                "status": "Actual",
-                "messageType": "Update",
-                "category": "Met",
-                "severity": "Moderate",
-                "certainty": "Likely",
-                "urgency": "Expected",
-                "event": "Rip Current Statement",
-                "sender": "w-nws.webmaster@noaa.gov",
-                "senderName": "NWS Wilmington NC",
-                "headline": "Rip Current Statement issued July 7 at 1:11PM EDT until July 7 at 8:00PM EDT by NWS Wilmington NC",
-                "description": "* WHAT...Dangerous rip currents expected. In addition, Carolina\nBeach Ocean Rescue is advising that there have been multiple\nshark sightings in the surf this afternoon.\n\n* WHERE...Coastal New Hanover Counties.\n\n* WHEN...From 6 AM EDT Monday through Monday evening.\n\n* IMPACTS...Rip currents can sweep even the best swimmers away\nfrom shore into deeper water.",
-                "instruction": "Swim near a lifeguard. If caught in a rip current, relax and\nfloat. Don't swim against the current. If able, swim in a\ndirection following the shoreline. If unable to escape, face the\nshore and call or wave for help.",
-                "response": "Avoid",
-                "parameters": {
-                    "AWIPSidentifier": [
-                        "CFWILM"
-                    ],
-                    "WMOidentifier": [
-                        "WHUS42 KILM 071711"
-                    ],
-                    "NWSheadline": [
-                        "HIGH RIP CURRENT RISK REMAINS IN EFFECT UNTIL 8 PM EDT THIS EVENING"
-                    ],
-                    "BLOCKCHANNEL": [
-                        "EAS",
-                        "NWEM",
-                        "CMAS"
-                    ],
-                    "VTEC": [
-                        "/O.CON.KILM.RP.S.0016.000000T0000Z-250708T0000Z/"
-                    ],
-                    "eventEndingTime": [
-                        "2025-07-07T20:00:00-04:00"
-                    ],
-                    "expiredReferences": [
-                        "w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.f2ed49ca1863251570de45966e73675c362d7f3e.004.2,2025-07-06T19:35:00-04:00"
                     ]
                 },
                 "scope": "Public",
@@ -2168,94 +2059,90 @@
             }
         },
         {
-            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.27e969efa26b228d729f64fa522a055f8182f503.001.1",
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f7200a082650dd645b25b43b0c904149656b0834.001.1",
             "type": "Feature",
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -79.16,
-                            34.67
+                            -78.87,
+                            34.95
                         ],
                         [
-                            -79.03,
-                            34.68
+                            -78.75,
+                            34.95
                         ],
                         [
-                            -78.91,
-                            34.57
+                            -78.74,
+                            34.78
                         ],
                         [
-                            -78.99,
-                            34.52
+                            -78.64999999999999,
+                            34.72
                         ],
                         [
-                            -79.08,
-                            34.59
+                            -78.71999999999998,
+                            34.65
                         ],
                         [
-                            -79.14999999999999,
-                            34.580000000000005
+                            -78.83999999999999,
+                            34.74
                         ],
                         [
-                            -79.16,
-                            34.67
+                            -78.87,
+                            34.95
                         ]
                     ]
                 ]
             },
             "properties": {
-                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.27e969efa26b228d729f64fa522a055f8182f503.001.1",
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f7200a082650dd645b25b43b0c904149656b0834.001.1",
                 "@type": "wx:Alert",
-                "id": "urn:oid:2.49.0.1.840.0.27e969efa26b228d729f64fa522a055f8182f503.001.1",
-                "areaDesc": "Robeson, NC",
+                "id": "urn:oid:2.49.0.1.840.0.f7200a082650dd645b25b43b0c904149656b0834.001.1",
+                "areaDesc": "Bladen, NC; Cumberland, NC",
                 "geocode": {
                     "SAME": [
-                        "037155"
+                        "037017",
+                        "037051"
                     ],
                     "UGC": [
-                        "NCC155"
+                        "NCC017",
+                        "NCC051"
                     ]
                 },
                 "affectedZones": [
-                    "https://api.weather.gov/zones/county/NCC155"
+                    "https://api.weather.gov/zones/county/NCC017",
+                    "https://api.weather.gov/zones/county/NCC051"
                 ],
-                "references": [
-                    {
-                        "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.d40d7d1609b9600b64f86a23239f7d527d0e8141.001.1",
-                        "identifier": "urn:oid:2.49.0.1.840.0.d40d7d1609b9600b64f86a23239f7d527d0e8141.001.1",
-                        "sender": "w-nws.webmaster@noaa.gov",
-                        "sent": "2025-07-06T21:44:00-04:00"
-                    }
-                ],
+                "references": [],
                 "sent": "2025-07-07T11:52:00-04:00",
                 "effective": "2025-07-07T11:52:00-04:00",
-                "onset": "2025-07-07T11:52:00-04:00",
+                "onset": "2025-07-07T21:32:00-04:00",
                 "expires": "2025-07-08T06:00:00-04:00",
-                "ends": null,
+                "ends": "2025-07-12T02:21:00-04:00",
                 "status": "Actual",
-                "messageType": "Update",
+                "messageType": "Alert",
                 "category": "Met",
                 "severity": "Severe",
-                "certainty": "Observed",
-                "urgency": "Immediate",
+                "certainty": "Likely",
+                "urgency": "Expected",
                 "event": "Flood Warning",
                 "sender": "w-nws.webmaster@noaa.gov",
                 "senderName": "NWS Wilmington NC",
-                "headline": "Flood Warning issued July 7 at 11:52AM EDT by NWS Wilmington NC",
-                "description": "...The Flood Warning continues for the following rivers in North\nCarolina...\n\nLumber River Near Lumberton affecting Robeson County.\n\n* WHAT...Minor flooding is occurring and minor flooding is forecast.\n\n* WHERE...Lumber River near Lumberton.\n\n* WHEN...Until further notice.\n\n* IMPACTS...At 15.0 feet, Flood waters will affect yards in the\nPines area, Coxs Pond area, and along River Road. Additional\nresidential property will be affected between the Pepsi plant and\nthe river on the east side of Lumberton.\n\n* ADDITIONAL DETAILS...\n- At 11:35 AM EDT Monday the stage was 14.6 feet.\n- Forecast...The river is expected to rise to a crest of 15.0\nfeet early tomorrow afternoon.\n- Flood stage is 13.0 feet.\n- weather.gov/safety/flood",
-                "instruction": "Motorists should not attempt to drive around barricades or drive\ncars through flooded areas.\n\nAdditional information is available at water.noaa.gov/wfo/ilm .\n\nThe next statement will be issued by Tuesday morning.",
+                "headline": "Flood Warning issued July 7 at 11:52AM EDT until July 12 at 2:21AM EDT by NWS Wilmington NC",
+                "description": "...The National Weather Service in Wilmington NC has issued a Flood\nWarning for the following rivers in North Carolina...\n\nCape Fear River At William O Huske Lock And Dam 3 affecting\nBladen and Cumberland Counties.\n\nCape Fear River At Elizabethtown affecting Bladen County.\n\n* WHAT...Minor flooding is forecast.\n\n* WHERE...Cape Fear River at William O Huske Lock And Dam 3.\n\n* WHEN...From this evening to early Saturday morning.\n\n* IMPACTS...At 50.0 feet, Extensive lowland flooding will occur\nalong the river. The wildlife boat ramp at Tar Heel Ferry Road\nwill likely be inaccessible.\n\n* ADDITIONAL DETAILS...\n- At 11:00 AM EDT Monday the stage was 37.0 feet.\n- Forecast...The river is expected to rise above flood stage\nlate this evening to a crest of 51.0 feet early Wednesday\nmorning. It will then fall below flood stage Friday morning.\n- Flood stage is 42.0 feet.\n- weather.gov/safety/flood",
+                "instruction": "Turn around, don't drown when encountering flooded roads. Most flood\ndeaths occur in vehicles.\n\nAdditional information is available at water.noaa.gov/wfo/ilm .\n\nThe next statement will be issued by Tuesday morning.",
                 "response": "Avoid",
                 "parameters": {
                     "AWIPSidentifier": [
-                        "FLSILM"
+                        "FLWILM"
                     ],
                     "WMOidentifier": [
-                        "WGUS82 KILM 071552"
+                        "WGUS42 KILM 071552"
                     ],
                     "NWSheadline": [
-                        "FLOOD WARNING REMAINS IN EFFECT UNTIL FURTHER NOTICE"
+                        "FLOOD WARNING IN EFFECT FROM THIS EVENING TO EARLY SATURDAY MORNING"
                     ],
                     "BLOCKCHANNEL": [
                         "EAS",
@@ -2266,10 +2153,10 @@
                         "WXR"
                     ],
                     "VTEC": [
-                        "/O.CON.KILM.FL.W.0009.000000T0000Z-000000T0000Z/"
+                        "/O.NEW.KILM.FL.W.0010.250708T0132Z-250712T0621Z/"
                     ],
-                    "expiredReferences": [
-                        "w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.d807287df76d984557cd38efdd56b69ecf64d700.001.1,2025-07-06T15:08:00-04:00"
+                    "eventEndingTime": [
+                        "2025-07-12T02:21:00-04:00"
                     ]
                 },
                 "scope": "Public",
@@ -2278,7 +2165,7 @@
                 "web": "http://www.weather.gov",
                 "eventCode": {
                     "SAME": [
-                        "FLS"
+                        "FLW"
                     ],
                     "NationalWeatherService": [
                         "FLW"
@@ -2399,90 +2286,94 @@
             }
         },
         {
-            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f7200a082650dd645b25b43b0c904149656b0834.001.1",
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.27e969efa26b228d729f64fa522a055f8182f503.001.1",
             "type": "Feature",
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            -78.87,
-                            34.95
+                            -79.16,
+                            34.67
                         ],
                         [
-                            -78.75,
-                            34.95
+                            -79.03,
+                            34.68
                         ],
                         [
-                            -78.74,
-                            34.78
+                            -78.91,
+                            34.57
                         ],
                         [
-                            -78.64999999999999,
-                            34.72
+                            -78.99,
+                            34.52
                         ],
                         [
-                            -78.71999999999998,
-                            34.65
+                            -79.08,
+                            34.59
                         ],
                         [
-                            -78.83999999999999,
-                            34.74
+                            -79.14999999999999,
+                            34.580000000000005
                         ],
                         [
-                            -78.87,
-                            34.95
+                            -79.16,
+                            34.67
                         ]
                     ]
                 ]
             },
             "properties": {
-                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f7200a082650dd645b25b43b0c904149656b0834.001.1",
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.27e969efa26b228d729f64fa522a055f8182f503.001.1",
                 "@type": "wx:Alert",
-                "id": "urn:oid:2.49.0.1.840.0.f7200a082650dd645b25b43b0c904149656b0834.001.1",
-                "areaDesc": "Bladen, NC; Cumberland, NC",
+                "id": "urn:oid:2.49.0.1.840.0.27e969efa26b228d729f64fa522a055f8182f503.001.1",
+                "areaDesc": "Robeson, NC",
                 "geocode": {
                     "SAME": [
-                        "037017",
-                        "037051"
+                        "037155"
                     ],
                     "UGC": [
-                        "NCC017",
-                        "NCC051"
+                        "NCC155"
                     ]
                 },
                 "affectedZones": [
-                    "https://api.weather.gov/zones/county/NCC017",
-                    "https://api.weather.gov/zones/county/NCC051"
+                    "https://api.weather.gov/zones/county/NCC155"
                 ],
-                "references": [],
+                "references": [
+                    {
+                        "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.d40d7d1609b9600b64f86a23239f7d527d0e8141.001.1",
+                        "identifier": "urn:oid:2.49.0.1.840.0.d40d7d1609b9600b64f86a23239f7d527d0e8141.001.1",
+                        "sender": "w-nws.webmaster@noaa.gov",
+                        "sent": "2025-07-06T21:44:00-04:00"
+                    }
+                ],
                 "sent": "2025-07-07T11:52:00-04:00",
                 "effective": "2025-07-07T11:52:00-04:00",
-                "onset": "2025-07-07T21:32:00-04:00",
+                "onset": "2025-07-07T11:52:00-04:00",
                 "expires": "2025-07-08T06:00:00-04:00",
-                "ends": "2025-07-12T02:21:00-04:00",
+                "ends": null,
                 "status": "Actual",
-                "messageType": "Alert",
+                "messageType": "Update",
                 "category": "Met",
                 "severity": "Severe",
-                "certainty": "Likely",
-                "urgency": "Expected",
+                "certainty": "Observed",
+                "urgency": "Immediate",
                 "event": "Flood Warning",
                 "sender": "w-nws.webmaster@noaa.gov",
                 "senderName": "NWS Wilmington NC",
-                "headline": "Flood Warning issued July 7 at 11:52AM EDT until July 12 at 2:21AM EDT by NWS Wilmington NC",
-                "description": "...The National Weather Service in Wilmington NC has issued a Flood\nWarning for the following rivers in North Carolina...\n\nCape Fear River At William O Huske Lock And Dam 3 affecting\nBladen and Cumberland Counties.\n\nCape Fear River At Elizabethtown affecting Bladen County.\n\n* WHAT...Minor flooding is forecast.\n\n* WHERE...Cape Fear River at William O Huske Lock And Dam 3.\n\n* WHEN...From this evening to early Saturday morning.\n\n* IMPACTS...At 50.0 feet, Extensive lowland flooding will occur\nalong the river. The wildlife boat ramp at Tar Heel Ferry Road\nwill likely be inaccessible.\n\n* ADDITIONAL DETAILS...\n- At 11:00 AM EDT Monday the stage was 37.0 feet.\n- Forecast...The river is expected to rise above flood stage\nlate this evening to a crest of 51.0 feet early Wednesday\nmorning. It will then fall below flood stage Friday morning.\n- Flood stage is 42.0 feet.\n- weather.gov/safety/flood",
-                "instruction": "Turn around, don't drown when encountering flooded roads. Most flood\ndeaths occur in vehicles.\n\nAdditional information is available at water.noaa.gov/wfo/ilm .\n\nThe next statement will be issued by Tuesday morning.",
+                "headline": "Flood Warning issued July 7 at 11:52AM EDT by NWS Wilmington NC",
+                "description": "...The Flood Warning continues for the following rivers in North\nCarolina...\n\nLumber River Near Lumberton affecting Robeson County.\n\n* WHAT...Minor flooding is occurring and minor flooding is forecast.\n\n* WHERE...Lumber River near Lumberton.\n\n* WHEN...Until further notice.\n\n* IMPACTS...At 15.0 feet, Flood waters will affect yards in the\nPines area, Coxs Pond area, and along River Road. Additional\nresidential property will be affected between the Pepsi plant and\nthe river on the east side of Lumberton.\n\n* ADDITIONAL DETAILS...\n- At 11:35 AM EDT Monday the stage was 14.6 feet.\n- Forecast...The river is expected to rise to a crest of 15.0\nfeet early tomorrow afternoon.\n- Flood stage is 13.0 feet.\n- weather.gov/safety/flood",
+                "instruction": "Motorists should not attempt to drive around barricades or drive\ncars through flooded areas.\n\nAdditional information is available at water.noaa.gov/wfo/ilm .\n\nThe next statement will be issued by Tuesday morning.",
                 "response": "Avoid",
                 "parameters": {
                     "AWIPSidentifier": [
-                        "FLWILM"
+                        "FLSILM"
                     ],
                     "WMOidentifier": [
-                        "WGUS42 KILM 071552"
+                        "WGUS82 KILM 071552"
                     ],
                     "NWSheadline": [
-                        "FLOOD WARNING IN EFFECT FROM THIS EVENING TO EARLY SATURDAY MORNING"
+                        "FLOOD WARNING REMAINS IN EFFECT UNTIL FURTHER NOTICE"
                     ],
                     "BLOCKCHANNEL": [
                         "EAS",
@@ -2493,10 +2384,10 @@
                         "WXR"
                     ],
                     "VTEC": [
-                        "/O.NEW.KILM.FL.W.0010.250708T0132Z-250712T0621Z/"
+                        "/O.CON.KILM.FL.W.0009.000000T0000Z-000000T0000Z/"
                     ],
-                    "eventEndingTime": [
-                        "2025-07-12T02:21:00-04:00"
+                    "expiredReferences": [
+                        "w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.d807287df76d984557cd38efdd56b69ecf64d700.001.1,2025-07-06T15:08:00-04:00"
                     ]
                 },
                 "scope": "Public",
@@ -2505,7 +2396,132 @@
                 "web": "http://www.weather.gov",
                 "eventCode": {
                     "SAME": [
+                        "FLS"
+                    ],
+                    "NationalWeatherService": [
                         "FLW"
+                    ]
+                }
+            }
+        },
+        {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.847667fe1d2a6a9be979b9fede29241265abe9b0.001.1",
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -78.85,
+                            35.49
+                        ],
+                        [
+                            -78.66999999999999,
+                            35.370000000000005
+                        ],
+                        [
+                            -78.64999999999999,
+                            35.25000000000001
+                        ],
+                        [
+                            -78.75999999999999,
+                            35.260000000000005
+                        ],
+                        [
+                            -78.77,
+                            35.32000000000001
+                        ],
+                        [
+                            -78.92,
+                            35.43000000000001
+                        ],
+                        [
+                            -78.85,
+                            35.49
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.847667fe1d2a6a9be979b9fede29241265abe9b0.001.1",
+                "@type": "wx:Alert",
+                "id": "urn:oid:2.49.0.1.840.0.847667fe1d2a6a9be979b9fede29241265abe9b0.001.1",
+                "areaDesc": "Harnett, NC",
+                "geocode": {
+                    "SAME": [
+                        "037085"
+                    ],
+                    "UGC": [
+                        "NCC085"
+                    ]
+                },
+                "affectedZones": [
+                    "https://api.weather.gov/zones/county/NCC085"
+                ],
+                "references": [
+                    {
+                        "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e4642671a6d4019c689a1b5c9c4eea41886d07aa.001.1",
+                        "identifier": "urn:oid:2.49.0.1.840.0.e4642671a6d4019c689a1b5c9c4eea41886d07aa.001.1",
+                        "sender": "w-nws.webmaster@noaa.gov",
+                        "sent": "2025-07-07T00:54:00-04:00"
+                    },
+                    {
+                        "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f5b8991dd3f7f4af557507a97e7273c01d2c467.001.1",
+                        "identifier": "urn:oid:2.49.0.1.840.0.1f5b8991dd3f7f4af557507a97e7273c01d2c467.001.1",
+                        "sender": "w-nws.webmaster@noaa.gov",
+                        "sent": "2025-07-07T04:18:00-04:00"
+                    }
+                ],
+                "sent": "2025-07-07T09:24:00-04:00",
+                "effective": "2025-07-07T09:24:00-04:00",
+                "onset": "2025-07-07T09:24:00-04:00",
+                "expires": "2025-07-07T21:30:00-04:00",
+                "ends": "2025-07-09T05:13:00-04:00",
+                "status": "Actual",
+                "messageType": "Update",
+                "category": "Met",
+                "severity": "Severe",
+                "certainty": "Observed",
+                "urgency": "Immediate",
+                "event": "Flood Warning",
+                "sender": "w-nws.webmaster@noaa.gov",
+                "senderName": "NWS Raleigh NC",
+                "headline": "Flood Warning issued July 7 at 9:24AM EDT until July 9 at 5:13AM EDT by NWS Raleigh NC",
+                "description": "...The Flood Warning continues for the following rivers in North\nCarolina...\n\nCape Fear River At Lillington affecting Harnett County.\n\nDeep River At Moncure affecting Chatham and Lee Counties.\n\n* WHAT...Minor flooding is occurring and moderate flooding is\nforecast.\n\n* WHERE...Cape Fear River at Lillington.\n\n* WHEN...Until early Wednesday morning.\n\n* IMPACTS...At 14.0 feet, Minor flooding begins. The boat launch\nramp and wooden deck at The Riverside Restaurant are flooded.\nAt 17.0 feet, Water threatens homes upstream on Riverside Hills\nDrive.\nAt 19.0 feet, Moderate flooding begins. The storm drains on the\nnorth bank are inundated and water reaches the water treatment\nplant. Homes on Riverside Hills Drive are flooded.\n\n* ADDITIONAL DETAILS...\n- At 8:28 AM EDT Monday the stage was 14.9 feet.\n- Forecast...The river is expected to rise to a crest of 19.7\nfeet this evening. It will then fall below flood stage\ntomorrow afternoon.\n- Flood stage is 14.0 feet.",
+                "instruction": "Motorists should not attempt to drive around barricades or drive\ncars through flooded areas.\n\nCaution is urged when walking near riverbanks.\n\nTo escape rising water, take the shortest path to higher ground.\n\nAdditional information is available at www.weather.gov/rah/rivers.\n\nThe next statement will be issued this evening.",
+                "response": "Avoid",
+                "parameters": {
+                    "AWIPSidentifier": [
+                        "FLSRAH"
+                    ],
+                    "WMOidentifier": [
+                        "WGUS82 KRAH 071324"
+                    ],
+                    "NWSheadline": [
+                        "FLOOD WARNING NOW IN EFFECT UNTIL EARLY WEDNESDAY MORNING"
+                    ],
+                    "BLOCKCHANNEL": [
+                        "EAS",
+                        "NWEM",
+                        "CMAS"
+                    ],
+                    "EAS-ORG": [
+                        "WXR"
+                    ],
+                    "VTEC": [
+                        "/O.EXT.KRAH.FL.W.0014.000000T0000Z-250709T0913Z/"
+                    ],
+                    "eventEndingTime": [
+                        "2025-07-09T05:13:00-04:00"
+                    ]
+                },
+                "scope": "Public",
+                "code": "IPAWSv1.0",
+                "language": "en-US",
+                "web": "http://www.weather.gov",
+                "eventCode": {
+                    "SAME": [
+                        "FLS"
                     ],
                     "NationalWeatherService": [
                         "FLW"
@@ -2636,131 +2652,6 @@
                     ],
                     "expiredReferences": [
                         "w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.418c7bd6e7ad6328a5dca5889b21d0210b652368.001.1,2025-07-06T20:24:00-04:00"
-                    ]
-                },
-                "scope": "Public",
-                "code": "IPAWSv1.0",
-                "language": "en-US",
-                "web": "http://www.weather.gov",
-                "eventCode": {
-                    "SAME": [
-                        "FLS"
-                    ],
-                    "NationalWeatherService": [
-                        "FLW"
-                    ]
-                }
-            }
-        },
-        {
-            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.847667fe1d2a6a9be979b9fede29241265abe9b0.001.1",
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            -78.85,
-                            35.49
-                        ],
-                        [
-                            -78.66999999999999,
-                            35.370000000000005
-                        ],
-                        [
-                            -78.64999999999999,
-                            35.25000000000001
-                        ],
-                        [
-                            -78.75999999999999,
-                            35.260000000000005
-                        ],
-                        [
-                            -78.77,
-                            35.32000000000001
-                        ],
-                        [
-                            -78.92,
-                            35.43000000000001
-                        ],
-                        [
-                            -78.85,
-                            35.49
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.847667fe1d2a6a9be979b9fede29241265abe9b0.001.1",
-                "@type": "wx:Alert",
-                "id": "urn:oid:2.49.0.1.840.0.847667fe1d2a6a9be979b9fede29241265abe9b0.001.1",
-                "areaDesc": "Harnett, NC",
-                "geocode": {
-                    "SAME": [
-                        "037085"
-                    ],
-                    "UGC": [
-                        "NCC085"
-                    ]
-                },
-                "affectedZones": [
-                    "https://api.weather.gov/zones/county/NCC085"
-                ],
-                "references": [
-                    {
-                        "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e4642671a6d4019c689a1b5c9c4eea41886d07aa.001.1",
-                        "identifier": "urn:oid:2.49.0.1.840.0.e4642671a6d4019c689a1b5c9c4eea41886d07aa.001.1",
-                        "sender": "w-nws.webmaster@noaa.gov",
-                        "sent": "2025-07-07T00:54:00-04:00"
-                    },
-                    {
-                        "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f5b8991dd3f7f4af557507a97e7273c01d2c467.001.1",
-                        "identifier": "urn:oid:2.49.0.1.840.0.1f5b8991dd3f7f4af557507a97e7273c01d2c467.001.1",
-                        "sender": "w-nws.webmaster@noaa.gov",
-                        "sent": "2025-07-07T04:18:00-04:00"
-                    }
-                ],
-                "sent": "2025-07-07T09:24:00-04:00",
-                "effective": "2025-07-07T09:24:00-04:00",
-                "onset": "2025-07-07T09:24:00-04:00",
-                "expires": "2025-07-07T21:30:00-04:00",
-                "ends": "2025-07-09T05:13:00-04:00",
-                "status": "Actual",
-                "messageType": "Update",
-                "category": "Met",
-                "severity": "Severe",
-                "certainty": "Observed",
-                "urgency": "Immediate",
-                "event": "Flood Warning",
-                "sender": "w-nws.webmaster@noaa.gov",
-                "senderName": "NWS Raleigh NC",
-                "headline": "Flood Warning issued July 7 at 9:24AM EDT until July 9 at 5:13AM EDT by NWS Raleigh NC",
-                "description": "...The Flood Warning continues for the following rivers in North\nCarolina...\n\nCape Fear River At Lillington affecting Harnett County.\n\nDeep River At Moncure affecting Chatham and Lee Counties.\n\n* WHAT...Minor flooding is occurring and moderate flooding is\nforecast.\n\n* WHERE...Cape Fear River at Lillington.\n\n* WHEN...Until early Wednesday morning.\n\n* IMPACTS...At 14.0 feet, Minor flooding begins. The boat launch\nramp and wooden deck at The Riverside Restaurant are flooded.\nAt 17.0 feet, Water threatens homes upstream on Riverside Hills\nDrive.\nAt 19.0 feet, Moderate flooding begins. The storm drains on the\nnorth bank are inundated and water reaches the water treatment\nplant. Homes on Riverside Hills Drive are flooded.\n\n* ADDITIONAL DETAILS...\n- At 8:28 AM EDT Monday the stage was 14.9 feet.\n- Forecast...The river is expected to rise to a crest of 19.7\nfeet this evening. It will then fall below flood stage\ntomorrow afternoon.\n- Flood stage is 14.0 feet.",
-                "instruction": "Motorists should not attempt to drive around barricades or drive\ncars through flooded areas.\n\nCaution is urged when walking near riverbanks.\n\nTo escape rising water, take the shortest path to higher ground.\n\nAdditional information is available at www.weather.gov/rah/rivers.\n\nThe next statement will be issued this evening.",
-                "response": "Avoid",
-                "parameters": {
-                    "AWIPSidentifier": [
-                        "FLSRAH"
-                    ],
-                    "WMOidentifier": [
-                        "WGUS82 KRAH 071324"
-                    ],
-                    "NWSheadline": [
-                        "FLOOD WARNING NOW IN EFFECT UNTIL EARLY WEDNESDAY MORNING"
-                    ],
-                    "BLOCKCHANNEL": [
-                        "EAS",
-                        "NWEM",
-                        "CMAS"
-                    ],
-                    "EAS-ORG": [
-                        "WXR"
-                    ],
-                    "VTEC": [
-                        "/O.EXT.KRAH.FL.W.0014.000000T0000Z-250709T0913Z/"
-                    ],
-                    "eventEndingTime": [
-                        "2025-07-09T05:13:00-04:00"
                     ]
                 },
                 "scope": "Public",
@@ -3048,6 +2939,91 @@
             }
         },
         {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.ece8516b4e74a0dbbd6d40dadfc406bc226fa3c9.001.1",
+            "type": "Feature",
+            "geometry": null,
+            "properties": {
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.ece8516b4e74a0dbbd6d40dadfc406bc226fa3c9.001.1",
+                "@type": "wx:Alert",
+                "id": "urn:oid:2.49.0.1.840.0.ece8516b4e74a0dbbd6d40dadfc406bc226fa3c9.001.1",
+                "areaDesc": "West Carteret; Coastal Onslow",
+                "geocode": {
+                    "SAME": [
+                        "037031",
+                        "037133"
+                    ],
+                    "UGC": [
+                        "NCZ195",
+                        "NCZ199"
+                    ]
+                },
+                "affectedZones": [
+                    "https://api.weather.gov/zones/forecast/NCZ195",
+                    "https://api.weather.gov/zones/forecast/NCZ199"
+                ],
+                "references": [
+                    {
+                        "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f29cf534d4194ab26f597c035af729c091e990eb.001.2",
+                        "identifier": "urn:oid:2.49.0.1.840.0.f29cf534d4194ab26f597c035af729c091e990eb.001.2",
+                        "sender": "w-nws.webmaster@noaa.gov",
+                        "sent": "2025-07-06T20:14:00-04:00"
+                    }
+                ],
+                "sent": "2025-07-07T03:33:00-04:00",
+                "effective": "2025-07-07T03:33:00-04:00",
+                "onset": "2025-07-07T08:00:00-04:00",
+                "expires": "2025-07-07T15:45:00-04:00",
+                "ends": "2025-07-07T20:00:00-04:00",
+                "status": "Actual",
+                "messageType": "Update",
+                "category": "Met",
+                "severity": "Moderate",
+                "certainty": "Likely",
+                "urgency": "Expected",
+                "event": "Beach Hazards Statement",
+                "sender": "w-nws.webmaster@noaa.gov",
+                "senderName": "NWS Newport/Morehead City NC",
+                "headline": "Beach Hazards Statement issued July 7 at 3:33AM EDT until July 7 at 8:00PM EDT by NWS Newport/Morehead City NC",
+                "description": "* WHAT...Dangerous rip currents.\n\n* WHERE...Crystal Coast beaches.\n\n* WHEN...From 8 AM EDT this morning through this evening.\n\n* IMPACTS...Rip currents can sweep even the best swimmers away\nfrom shore into deeper water.\n\n* ADDITIONAL DETAILS...The most likely time for strong rip\ncurrents to occur is a couple hours either side of low tide,\nwhich will occur around 11:30 AM Monday.",
+                "instruction": "Life-threatening rip currents. If caught in a rip current, remain\ncalm. Swim in a direction following the shoreline. If tired,\nfloat or tread water until out of the rip current. If unable to\nescape, face the shore and call or wave for help.",
+                "response": "Avoid",
+                "parameters": {
+                    "AWIPSidentifier": [
+                        "CFWMHX"
+                    ],
+                    "WMOidentifier": [
+                        "WHUS42 KMHX 070733"
+                    ],
+                    "NWSheadline": [
+                        "BEACH HAZARDS STATEMENT REMAINS IN EFFECT FROM 8 AM EDT THIS MORNING THROUGH THIS EVENING"
+                    ],
+                    "BLOCKCHANNEL": [
+                        "EAS",
+                        "NWEM",
+                        "CMAS"
+                    ],
+                    "VTEC": [
+                        "/O.CON.KMHX.BH.S.0037.250707T1200Z-250708T0000Z/"
+                    ],
+                    "eventEndingTime": [
+                        "2025-07-07T20:00:00-04:00"
+                    ]
+                },
+                "scope": "Public",
+                "code": "IPAWSv1.0",
+                "language": "en-US",
+                "web": "http://www.weather.gov",
+                "eventCode": {
+                    "SAME": [
+                        "NWS"
+                    ],
+                    "NationalWeatherService": [
+                        "BHS"
+                    ]
+                }
+            }
+        },
+        {
             "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.ece8516b4e74a0dbbd6d40dadfc406bc226fa3c9.002.1",
             "type": "Feature",
             "geometry": null,
@@ -3098,91 +3074,6 @@
                 "headline": "Beach Hazards Statement issued July 7 at 3:33AM EDT until July 7 at 8:00PM EDT by NWS Newport/Morehead City NC",
                 "description": "* WHAT...Dangerous rip currents and strong longshore currents in\nthe surf zone.\n\n* WHERE...For the dangerous rip currents, the beaches from Cape\nHatteras to Beaufort Inlet. For strong longshore currents, the\nbeaches from Cape Hatteras to Cape Lookout.\n\n* WHEN...From 8 AM EDT this morning through this evening.\n\n* IMPACTS...Rip currents can sweep even the best swimmers away\nfrom shore into deeper water. Strong longshore currents will\ncreate dangerous swimming conditions.\n\n* ADDITIONAL DETAILS...The most likely time for strong rip\ncurrents to occur is a couple hours either side of low tide,\nwhich will occur around 11:30 AM Monday.",
                 "instruction": "Life-threatening rip currents. If caught in a rip current, remain\ncalm. Swim in a direction following the shoreline. If tired,\nfloat or tread water until out of the rip current. If unable to\nescape, face the shore and call or wave for help.\n\nStrong longshore currents can sweep swimmers and surfers into rip\ncurrents, piers, jetties and other hazardous areas. In many\ncases, the longshore current is strong enough to prevent swimmers\nfrom being able to keep their feet on the bottom making it\ndifficult to return to shore.",
-                "response": "Avoid",
-                "parameters": {
-                    "AWIPSidentifier": [
-                        "CFWMHX"
-                    ],
-                    "WMOidentifier": [
-                        "WHUS42 KMHX 070733"
-                    ],
-                    "NWSheadline": [
-                        "BEACH HAZARDS STATEMENT REMAINS IN EFFECT FROM 8 AM EDT THIS MORNING THROUGH THIS EVENING"
-                    ],
-                    "BLOCKCHANNEL": [
-                        "EAS",
-                        "NWEM",
-                        "CMAS"
-                    ],
-                    "VTEC": [
-                        "/O.CON.KMHX.BH.S.0037.250707T1200Z-250708T0000Z/"
-                    ],
-                    "eventEndingTime": [
-                        "2025-07-07T20:00:00-04:00"
-                    ]
-                },
-                "scope": "Public",
-                "code": "IPAWSv1.0",
-                "language": "en-US",
-                "web": "http://www.weather.gov",
-                "eventCode": {
-                    "SAME": [
-                        "NWS"
-                    ],
-                    "NationalWeatherService": [
-                        "BHS"
-                    ]
-                }
-            }
-        },
-        {
-            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.ece8516b4e74a0dbbd6d40dadfc406bc226fa3c9.001.1",
-            "type": "Feature",
-            "geometry": null,
-            "properties": {
-                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.ece8516b4e74a0dbbd6d40dadfc406bc226fa3c9.001.1",
-                "@type": "wx:Alert",
-                "id": "urn:oid:2.49.0.1.840.0.ece8516b4e74a0dbbd6d40dadfc406bc226fa3c9.001.1",
-                "areaDesc": "West Carteret; Coastal Onslow",
-                "geocode": {
-                    "SAME": [
-                        "037031",
-                        "037133"
-                    ],
-                    "UGC": [
-                        "NCZ195",
-                        "NCZ199"
-                    ]
-                },
-                "affectedZones": [
-                    "https://api.weather.gov/zones/forecast/NCZ195",
-                    "https://api.weather.gov/zones/forecast/NCZ199"
-                ],
-                "references": [
-                    {
-                        "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f29cf534d4194ab26f597c035af729c091e990eb.001.2",
-                        "identifier": "urn:oid:2.49.0.1.840.0.f29cf534d4194ab26f597c035af729c091e990eb.001.2",
-                        "sender": "w-nws.webmaster@noaa.gov",
-                        "sent": "2025-07-06T20:14:00-04:00"
-                    }
-                ],
-                "sent": "2025-07-07T03:33:00-04:00",
-                "effective": "2025-07-07T03:33:00-04:00",
-                "onset": "2025-07-07T08:00:00-04:00",
-                "expires": "2025-07-07T15:45:00-04:00",
-                "ends": "2025-07-07T20:00:00-04:00",
-                "status": "Actual",
-                "messageType": "Update",
-                "category": "Met",
-                "severity": "Moderate",
-                "certainty": "Likely",
-                "urgency": "Expected",
-                "event": "Beach Hazards Statement",
-                "sender": "w-nws.webmaster@noaa.gov",
-                "senderName": "NWS Newport/Morehead City NC",
-                "headline": "Beach Hazards Statement issued July 7 at 3:33AM EDT until July 7 at 8:00PM EDT by NWS Newport/Morehead City NC",
-                "description": "* WHAT...Dangerous rip currents.\n\n* WHERE...Crystal Coast beaches.\n\n* WHEN...From 8 AM EDT this morning through this evening.\n\n* IMPACTS...Rip currents can sweep even the best swimmers away\nfrom shore into deeper water.\n\n* ADDITIONAL DETAILS...The most likely time for strong rip\ncurrents to occur is a couple hours either side of low tide,\nwhich will occur around 11:30 AM Monday.",
-                "instruction": "Life-threatening rip currents. If caught in a rip current, remain\ncalm. Swim in a direction following the shoreline. If tired,\nfloat or tread water until out of the rip current. If unable to\nescape, face the shore and call or wave for help.",
                 "response": "Avoid",
                 "parameters": {
                     "AWIPSidentifier": [
