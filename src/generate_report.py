@@ -95,11 +95,8 @@ Based on the following raw data, please generate a one-paragraph summary for **{
 
 Your summary MUST follow these rules:
 1.  Provide a general weather outlook for the state.
-2.  Explicitly mention any specific hazards (flooding, thunderstorms, rip currents, etc.).
-3.  If there are active alerts, seamlessly integrate them into the narrative. Use the following HTML tags for emphasis:
-    -   For Warnings: `<span style="color:#cc0000; font-weight:bold;">WARNING</span>`
-    -   For Watches: `<span style="color:#e67300; font-weight:bold;">WATCH</span>`
-    -   For Advisories: `<span style="color:#ffcc00; font-weight:bold;">ADVISORY</span>`
+2.  In the summary, you may refer to active hazards in general terms (e.g., "Several flood warnings are in effect...").
+3.  Do NOT include the details of the alerts in your summary paragraph. The details will be listed separately below your summary.
 4.  If there are no major hazards, state that clearly, for example: "No active river flood warnings or watches at this time."
 5.  You MUST end your response with the following sentence EXACTLY as it is written, with no extra characters or formatting: `{closing_statement}`
 
@@ -257,14 +254,23 @@ def main():
         prompt = create_llm_prompt(state_name, data['discussions'], data['alerts'], data.get('rivers', []), data['offices'])
         prompts_for_llm[state_name] = prompt
         
-        # In a real application, you would send this prompt to an LLM.
-        # An LLM will now be called to get the summary
         print(f"Generating summary for {state_name}...")
         summary = get_llm_summary(prompt, client)
         if not summary: # Fallback if summary is empty
              summary = f"[[LLM to synthesize summary for {state_name} using the generated prompt]]"
+        
         # Wrap the summary in Markup to ensure the HTML tags from the LLM are rendered correctly.
         template_data[state_template_map[state_name]] = Markup(summary)
+        
+        # Format and add the alerts for direct display in the template
+        formatted_alerts = []
+        if data['alerts']:
+            for alert in data['alerts']:
+                formatted_alerts.append(Markup(format_alert(alert)))
+        
+        # Generate the key for the alerts list (e.g., 'tennessee_alerts')
+        alert_key = state_template_map[state_name].replace('_hazards', '_alerts')
+        template_data[alert_key] = formatted_alerts
 
     with open(_prompts_path, 'w') as f:
         json.dump(prompts_for_llm, f, indent=4)
