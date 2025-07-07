@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 import openai
 from dotenv import load_dotenv
 import os
+from pytz import timezone
 
 # --- Path Setup ---
 # Get the absolute path of the directory where the script is located
@@ -174,11 +175,15 @@ def main():
     with open(_weather_data_path, 'r') as f:
         weather_data = json.load(f)
 
-    now = datetime.now()
+    # Get the current time in the US/Eastern timezone
+    eastern = timezone('US/Eastern')
+    now_utc = datetime.now(timezone('UTC'))
+    now_eastern = now_utc.astimezone(eastern)
+
     template_data = {
-        "update_time": now.strftime("%I:%M %p %Z"),
-        "start_date": now.strftime("%B %d, %Y"),
-        "end_date": (now + timedelta(days=4)).strftime("%B %d, %Y"),
+        "update_time": now_eastern.strftime("%I:%M %p %Z"),
+        "start_date": now_eastern.strftime("%B %d, %Y"),
+        "end_date": (now_eastern + timedelta(days=4)).strftime("%B %d, %Y"),
     }
 
     nws_discussions = weather_data.get('nws_discussions', {})
