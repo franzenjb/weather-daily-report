@@ -159,6 +159,9 @@ def main():
     """
     load_dotenv()
     
+    # Ensure the output directory exists before writing any files.
+    os.makedirs(os.path.dirname(_prompts_path), exist_ok=True)
+    
     # Initialize OpenAI client
     api_key = os.getenv("OPENAI_API_KEY")
     client = None

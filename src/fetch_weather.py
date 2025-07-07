@@ -81,6 +81,9 @@ def save_data(data):
     """
     Saves the combined weather data to a JSON file.
     """
+    # Ensure the output directory exists before trying to write to it
+    os.makedirs(os.path.dirname(_output_weather_data_path), exist_ok=True)
+    
     with open(_output_weather_data_path, 'w') as f:
         json.dump(data, f, indent=4)
     print(f"Weather data and discussions saved to {_output_weather_data_path}")
