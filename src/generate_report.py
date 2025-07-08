@@ -191,13 +191,11 @@ def main():
 
     desktop_content = (header_html + tropical_outlook_html + threats_header_html + 
                        all_states_summary_html + recommendations_html)
-    mobile_content = desktop_content
     
     template = _env.get_template('base_template.html')
     final_html = template.render(
         now_timestamp=int(now_eastern.timestamp()),
-        desktop_content=Markup(desktop_content),
-        mobile_content=Markup(mobile_content)
+        desktop_content=Markup(desktop_content)
     )
 
     with open(_output_html_path, 'w') as f:
