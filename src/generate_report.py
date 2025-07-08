@@ -6,6 +6,7 @@ from datetime import datetime
 from dotenv import load_dotenv
 from jinja2 import Environment, FileSystemLoader
 from markupsafe import Markup
+from pytz import timezone
 
 # --- Environment and API Key Setup ---
 load_dotenv()
@@ -175,9 +176,14 @@ def main():
         # Add a break after each state entry
         all_states_summary_html += "<br><br>"
 
+    # --- Timezone-Aware Timestamp ---
+    eastern = timezone('US/Eastern')
+    now_utc = datetime.now(timezone('UTC'))
+    now_eastern = now_utc.astimezone(eastern)
+
     header_html = f"""
-<p style="color:#000000; font-style:italic;">Weather.gov map checked at {datetime.now().strftime('%-I:%M %p %Z, %B %-d, %Y')}.</p>
-<h2 style="color:#990000; font-weight:bold;">5-Day Outlook</h2>
+<p style="color:#000000; font-style:italic;">Weather.gov map checked at {now_eastern.strftime('%-I:%M %p %Z, %B %-d, %Y')}.</p>
+<h2 style="color:#990000; font-weight:bold;">5-Day Outlook for {now_eastern.strftime('%B %-d, %Y')}</h2>
 """
     tropical_outlook_html = get_tropical_outlook(weather_data.get('nhc', {}))
     threats_header_html = '<h3 style="color:#990000; font-weight:bold;">State-by-State Threats</h3>'
@@ -189,7 +195,7 @@ def main():
     
     template = _env.get_template('base_template.html')
     final_html = template.render(
-        now_timestamp=int(datetime.now().timestamp()),
+        now_timestamp=int(now_eastern.timestamp()),
         desktop_content=Markup(desktop_content),
         mobile_content=Markup(mobile_content)
     )
