@@ -1,327 +1,205 @@
-# This script will call OpenAI with a formatted prompt to generate the report. 
-
+import openai
+import os
 import json
+import re
+from datetime import datetime
+from dotenv import load_dotenv
 from jinja2 import Environment, FileSystemLoader
 from markupsafe import Markup
-from datetime import datetime, timedelta
-import openai
-from dotenv import load_dotenv
-import os
-from pytz import timezone
 
-# --- Path Setup ---
-# Get the absolute path of the directory where the script is located
-_script_dir = os.path.dirname(os.path.abspath(__file__))
-# Get the project root directory (assuming the script is in 'src')
-_project_root = os.path.dirname(_script_dir)
+# --- Environment and API Key Setup ---
+load_dotenv()
+_project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+_env = Environment(loader=FileSystemLoader(os.path.join(_project_root, 'template')))
 
-# Define absolute paths to be used throughout the script
-_template_dir = os.path.join(_project_root, 'template')
-_weather_data_path = os.path.join(_project_root, 'output', 'weather_data.json')
-_nws_offices_path = os.path.join(_project_root, 'data', 'nws_offices.json')
-_prompts_path = os.path.join(_project_root, 'output', 'prompts_for_llm.json')
-_output_html_path = os.path.join(_project_root, 'output', 'index.html')
+# --- Path Definitions ---
+_output_dir = os.path.join(_project_root, 'output')
+_weather_data_path = os.path.join(_output_dir, 'weather_data.json')
+_prompts_path = os.path.join(_output_dir, 'prompts_for_llm.json')
+_output_html_path = os.path.join(_output_dir, 'index.html')
+
 
 def format_alert(alert):
     """
-    Formats a single alert from the NWS API into an HTML string with color coding.
+    Formats a single alert from the NWS API into an HTML list item.
     """
     properties = alert.get('properties', {})
     event = properties.get('event', 'Unknown Event')
     headline = properties.get('headline', 'No headline available.')
     severity = properties.get('severity', 'Unknown')
     area_desc = properties.get('areaDesc', 'Unknown area')
-
-    color = "#000000" # Default text color
-    style = "font-weight:bold;"
     
-    # Simple severity mapping
-    if severity in ['Severe', 'Extreme']:
-        color = '#cc0000'
-        # Example: WARNING: Flood Warning for Williamson County...
-        event_str = f'<span style="color:{color}; {style}">WARNING</span>: {event} for {area_desc}.<br><i style="font-size:13px;">{headline}</i>'
-    elif severity == 'Moderate':
-        color = '#e67300'
-        event_str = f'<span style="color:{color}; {style}">WATCH</span>: {event} for {area_desc}.<br><i style="font-size:13px;">{headline}</i>'
-    else: # Minor, Unknown
-        color = '#ffcc00'
-        event_str = f'<span style="color:{color}; {style}">ADVISORY</span>: {event} for {area_desc}.<br><i style="font-size:13px;">{headline}</i>'
-
-    return event_str
-
-def generate_recommendations(alerts):
-    """
-    Generates a concise set of recommendations based on alert types.
-    """
-    recommendations = set()
+    color_map = {'Extreme': '#cc0000', 'Severe': '#cc0000', 'Moderate': '#e67300'}
+    color = color_map.get(severity, '#ffcc00') # Default to yellow for Minor/Unknown
     
-    RECOMMENDATION_MAP = {
-        "Flood": "Do not drive through flooded roadways. Turn around, don't drown.",
-        "Rip Current": "Avoid swimming in hazardous surf conditions and obey posted flags.",
-        "Beach Hazard": "Stay out of the water. Dangerous surf and current conditions are expected.",
-        "Tornado": "Monitor local weather for updates. Be prepared to take shelter if a warning is issued.",
-        "Thunderstorm": "When thunder roars, go indoors. Seek shelter during thunderstorms.",
-        "Tropical Storm": "Prepare for tropical storm conditions. Secure loose outdoor objects.",
-        "Hurricane": "Follow instructions from local emergency management. Evacuate if ordered.",
-        "Heat": "Stay hydrated and avoid strenuous activity during the hottest part of the day.",
-        "Fog": "Reduce speed and use low-beam headlights when driving in dense fog."
-    }
+    level_map = {'Extreme': 'WARNING', 'Severe': 'WARNING', 'Moderate': 'WATCH'}
+    level = level_map.get(severity, 'ADVISORY')
+    
+    return (f'<li><span style="color:{color}; font-weight:bold;">{level}</span>: {event} for {area_desc}.'
+            f'<br><i style="font-size:13px;">{headline}</i></li>')
 
-    unique_events = {alert.get('properties', {}).get('event') for alert in alerts}
 
-    for event in unique_events:
-        if not event: continue
-        for keyword, recommendation in RECOMMENDATION_MAP.items():
-            if keyword.lower() in event.lower():
-                recommendations.add(recommendation)
-
-    if not recommendations:
-        recommendations.add("Monitor local conditions and practice lightning safety during any thunderstorm activity.")
-
-    return recommendations
-
-def create_llm_prompt(state_name, office_discussions, state_alerts, river_data, office_codes):
+def create_llm_prompt(state_name, discussions, alerts, offices):
     """
-    Creates a detailed prompt for an LLM to synthesize a weather report for a single state.
+    Creates a detailed, concise prompt for the LLM.
     """
-    office_list_str = ", ".join(office_codes)
+    office_list_str = ", ".join(offices)
+    discussions_str = "".join(f"\n\n---\nDiscussion from {d['office_code'].upper()}:\n{d.get('product_text', 'Not available.')}" for d in discussions)
+    alerts_str = "".join(f"\n- {a.get('properties', {}).get('headline')}" for a in alerts) if alerts else "No active alerts."
 
-    if state_alerts:
-        closing_statement = f"<i>Report based on data from offices ({office_list_str}).</i>"
-    else:
-        closing_statement = f"<i>All offices ({office_list_str}) confirm no active warnings.</i>"
+    prompt = f"""You are an expert meteorologist writing a 5-Day Outlook for an emergency management agency.
+Your task is to synthesize the provided data for {state_name} into a scannable, **extremely concise** summary.
 
-    prompt = f"""You are an expert meteorologist synthesizing a weather report for emergency management clients. Your tone should be professional, clear, and concise.
+GUIDELINES:
+1.  **Format:** Write a single HTML paragraph (`<p>...</p>`). Start with `<strong>{state_name}:</strong>`.
+2.  **Content:** Focus **only** on actionable intelligence. Mention primary threats and locations. Omit conversational filler.
+3.  **Brevity is Key:** If there are no significant hazards, write ONLY: `<strong>{state_name}:</strong> All offices ({office_list_str}) confirm no significant weather threats are forecast.`
+4.  **HTML Tags:** Use `<span style="color:#cc0000; font-weight:bold;">WARNING</span>` or `<span style="color:#ffcc00; font-weight:bold;">ADVISORY</span>` for emphasis where critical. Do NOT use markdown.
 
-Based on the following raw data, please generate a one-paragraph summary for **{state_name}**.
-
-Your summary MUST follow these rules:
-1.  Provide a general weather outlook for the state.
-2.  In the summary, you may refer to active hazards in general terms (e.g., "Several flood warnings are in effect...").
-3.  Do NOT include the details of the alerts in your summary paragraph. The details will be listed separately below your summary.
-4.  If there are no major hazards, state that clearly, for example: "No active river flood warnings or watches at this time."
-5.  You MUST end your response with the following sentence EXACTLY as it is written, with no extra characters or formatting: `{closing_statement}`
-
-**Raw Data for {state_name}:**
-
+DATA FOR {state_name}:
+- Offices: {office_list_str}
+- Active Alerts: {alerts_str}
+- Forecast Discussions: {discussions_str}
 """
-    # Append Forecast Discussions
-    prompt += "**Forecast Discussions:**\n"
-    if office_discussions:
-        for discussion in office_discussions:
-            prompt += f"- **{discussion['office_code'].upper()}**: {discussion.get('product_text', 'Not available.')}\n\n"
-    else:
-        prompt += "- No forecast discussions available.\n\n"
-
-    # Append Active Alerts
-    prompt += "**Active Alerts:**\n"
-    if state_alerts:
-        for alert in state_alerts:
-            props = alert.get('properties', {})
-            prompt += f"- **{props.get('event')}** ({props.get('severity')}): {props.get('headline')}\n"
-    else:
-        prompt += "- No active alerts.\n"
-
-    # Append River Data
-    prompt += "\n**Current River Conditions:**\n"
-    if river_data:
-        for gauge in river_data:
-            prompt += f"- **{gauge['name']} on the {gauge['waterbody']}**: Currently at **{gauge['status']}** flood stage. Observed value: {gauge['observed_value']} ft. Flood stage is {gauge['flood_stage']} ft.\n"
-    else:
-        prompt += "- No rivers are currently at or above flood stage in the monitored areas for this state.\n"
-        
-    prompt += f"\n**Please generate the synthesized paragraph for {state_name} now.**"
     return prompt
 
 def get_llm_summary(prompt, client):
     """
-    Calls the OpenAI API to get a summary based on the prompt.
+    Gets the summary from the LLM and cleans it.
     """
-    if not client:
-        return "[[LLM integration not configured. Skipping API call.]]"
     try:
-        response = client.chat.completions.create(
-            model="gpt-3.5-turbo", # Or another model like "gpt-4"
-            messages=[
-                # The system prompt is general, the user prompt contains detailed instructions.
-                {"role": "system", "content": "You are an expert meteorologist synthesizing a weather report for emergency management clients. Your tone should be professional, clear, and concise."},
-                {"role": "user", "content": prompt}
-            ]
+        completion = client.chat.completions.create(
+            model="gpt-4o",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.2, # Lower temperature for more deterministic output
+            max_tokens=400 
         )
-        return response.choices[0].message.content.strip()
+        # Clean the response: remove backticks, "html" markers, and leading/trailing whitespace
+        clean_response = re.sub(r'^```html\s*|\s*```$', '', completion.choices[0].message.content, flags=re.MULTILINE).strip()
+        return clean_response
     except Exception as e:
-        print(f"Error calling OpenAI API for a state: {e}")
-        return "[[LLM summary generation failed for this state. Please check the logs.]]"
+        print(f"  Error calling OpenAI API: {e}")
+        return f"<p><strong>Error:</strong> Could not generate summary. {e}</p>"
+
+
+def get_general_recommendations(alerts):
+    """Generates a static block of HTML with general recommendations."""
+    recs = set()
+    rec_map = {
+        "Flood": "Do not drive through flooded roadways.",
+        "Rip Current": "Avoid swimming in hazardous surf conditions.",
+        "Tornado": "Monitor local weather and be prepared to take shelter.",
+        "Thunderstorm": "Seek shelter during thunderstorms.",
+        "Hurricane": "Follow instructions from local emergency management.",
+        "Heat": "Stay hydrated and avoid strenuous activity during peak heat."
+    }
+    for alert in alerts:
+        event = alert.get('properties', {}).get('event', '').lower()
+        for keyword, rec in rec_map.items():
+            if keyword.lower() in event:
+                recs.add(rec)
+    
+    rec_html = "".join(f"<li>{rec}</li>" for rec in recs) if recs else "<li>Monitor local conditions.</li>"
+    return f"""
+<h3 style="color:#990000; font-weight:bold;">Recommendations</h3>
+<h4 style="color:#990000; font-weight:bold;">Immediate Actions</h4>
+<ul>{rec_html}</ul>
+<h4 style="color:#990000; font-weight:bold;">5-Day Monitoring</h4>
+<ul><li>Monitor NWS local offices for new or updated advisories.</li><li>Track NHC updates.</li></ul>
+"""
+
+def get_tropical_outlook(nhc_data):
+    """Formats the NHC data into a static HTML block."""
+    # This function remains largely the same
+    formation_chance = nhc_data.get('formation_chance_7day', '0')
+    summary = nhc_data.get('summary', 'No new tropical cyclones are expected during the next 7 days.')
+    return f"""
+<div style="background-color:#f0e8e4; border-left:4px solid #7a1d1d; padding:15px; margin-bottom:20px;">
+<h3 style="color:#7a1d1d; font-weight:bold; font-size:18px; margin:0 0 8px;">Tropical Weather Outlook</h3>
+<p style="color:#000000; margin:0 0 5px;">{summary}</p>
+<div style="text-align:center;">
+<div style="display:inline-block; background-color:#7a1d1d; color:#ffffff; padding:2px 8px; font-size:30px; font-weight:bold;">
+Formation Chance (7-Day): <span style="font-size:30px;">{formation_chance}%</span>
+</div></div></div>
+"""
 
 def main():
-    """
-    Main function to generate prompts for LLM and a template for the final report.
-    """
-    load_dotenv()
-    
-    # Ensure the output directory exists before writing any files.
-    os.makedirs(os.path.dirname(_prompts_path), exist_ok=True)
-    
-    # Initialize OpenAI client
-    api_key = os.getenv("OPENAI_API_KEY")
-    client = None
-    if api_key:
-        client = openai.OpenAI(api_key=api_key)
-    else:
-        print("WARNING: OPENAI_API_KEY not found. Report will use placeholder text.")
-        print("Please create a .env file and add your key, e.g., OPENAI_API_KEY='your-key-here'")
-
-    # --- Template Setup ---
-    # Use an absolute path for the template directory to avoid ambiguity
-    template_dir_abs = os.path.join(_project_root, 'template')
-    env = Environment(loader=FileSystemLoader(template_dir_abs), autoescape=True)
-    
-    base_template = env.get_template('base_template.html')
-    desktop_template = env.get_template('desktop_template.html')
-    mobile_template = env.get_template('mobile_template.html')
-
+    os.makedirs(_output_dir, exist_ok=True)
+    client = openai.OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
     with open(_weather_data_path, 'r') as f:
         weather_data = json.load(f)
 
-    # Get the current time in the US/Eastern timezone
-    eastern = timezone('US/Eastern')
-    now_utc = datetime.now(timezone('UTC'))
-    now_eastern = now_utc.astimezone(eastern)
-
-    template_data = {
-        "update_time": now_eastern.strftime("%I:%M %p %Z"),
-        "start_date": now_eastern.strftime("%B %d, %Y"),
-        "end_date": (now_eastern + timedelta(days=4)).strftime("%B %d, %Y"),
-        "now_timestamp": int(datetime.now().timestamp())
+    nws_offices_by_state = {
+        "Tennessee": ["OHX", "MEG", "MRX"], "Mississippi": ["JAN"], "Alabama": ["BMX", "MOB", "HUN"],
+        "Georgia": ["FFC", "JAX"], "Florida": ["TAE", "TBW", "MFL", "MLB"], "North Carolina": ["RAH", "ILM", "MHX"],
+        "South Carolina": ["CHS", "GSP", "CAE"], "U.S. Virgin Islands": ["SJU"]
     }
-
-    nws_discussions = weather_data.get('nws_discussions', {})
-    nws_alerts = weather_data.get('nws_alerts', [])
-    nwps_data = weather_data.get('nwps', {}).get('gauges', [])
     
-    # This file will hold the prompts for the user to run through an LLM
-    prompts_for_llm = {}
-
-    # Group discussions and alerts by state
     states_data = {}
-    office_to_state_map = {}
-    with open(_nws_offices_path, 'r') as f:
-        offices = json.load(f)
-    for office in offices:
-        state = office['state']
-        office_code = office['code'].upper()
-        if state not in states_data:
-            states_data[state] = {"discussions": [], "alerts": [], "offices": [], "rivers": []}
-        states_data[state]["offices"].append(office_code)
-        office_to_state_map[office_code] = state
+    all_alerts = weather_data.get('nws_alerts', [])
+    for state, offices in nws_offices_by_state.items():
+        # Associate alerts with states by checking if the state's abbreviation (e.g., "NC")
+        # is present in the alert's 'areaDesc' field. This is more reliable.
+        state_code = [k for k, v in {"TN": "Tennessee", "MS": "Mississippi", "AL": "Alabama", "GA": "Georgia", "FL": "Florida", "NC": "North Carolina", "SC": "South Carolina", "VI": "U.S. Virgin Islands"}.items() if v == state][0]
+        
+        state_alerts = [
+            a for a in all_alerts 
+            if f", {state_code}" in a['properties'].get('areaDesc', '')
+        ]
 
-    # Create a reverse map from state code to state name
-    state_name_map_rev = {v: k for k, v in {
-        "TN": "Tennessee", "MS": "Mississippi", "AL": "Alabama", "GA": "Georgia",
-        "FL": "Florida", "NC": "North Carolina", "SC": "South Carolina", "VI": "U.S. Virgin Islands"
-    }.items()}
+        states_data[state] = {
+            'discussions': [d for c, d in weather_data.get('nws_discussions', {}).items() if c.lower() in [o.lower() for o in offices]],
+            'alerts': state_alerts,
+            'offices': offices
+        }
 
-    for office_code, discussion in nws_discussions.items():
-        state = office_to_state_map.get(office_code.upper())
-        if state and state in states_data:
-            states_data[state]['discussions'].append(discussion)
-
-    for alert in nws_alerts:
-        if alert.get("error"):
-            continue
-
-        # Correctly associate alerts with states by checking the 'areaDesc' field.
-        # This is more reliable than using senderName.
-        area_desc = alert.get('properties', {}).get('areaDesc', '')
-        if not area_desc:
-            continue
-
-        for state_name, state_data in states_data.items():
-            state_code = state_name_map_rev.get(state_name) # Get 'NC' from 'North Carolina'
-            
-            # Check if the state code (e.g., "NC") or state name is in the area description.
-            # This handles cases like "Alamance, NC" and "Coastal North Carolina".
-            if f", {state_code}" in area_desc or state_name in area_desc:
-                # Avoid duplicates
-                if alert['properties']['id'] not in [a['properties']['id'] for a in state_data['alerts']]:
-                    state_data['alerts'].append(alert)
-
-    # Group river data by state
-    if nwps_data:
-        for gauge in nwps_data:
-            state_code = gauge.get('state')
-            if state_code and state_code in state_name_map_rev:
-                state_name = state_name_map_rev[state_code]
-                if state_name in states_data:
-                    states_data[state_name]['rivers'].append(gauge)
-
-    # Create prompts and placeholders
-    state_template_map = {
-        "Tennessee": "tennessee_hazards", "Mississippi": "mississippi_hazards", "Alabama": "alabama_hazards",
-        "Georgia": "georgia_hazards", "Florida": "florida_hazards", "North Carolina": "north_carolina_hazards",
-        "South Carolina": "south_carolina_hazards", "U.S. Virgin Islands": "us_virgin_islands_hazards"
-    }
-
+    prompts_for_llm = {}
+    all_states_summary_html = ""
     for state_name, data in states_data.items():
-        prompt = create_llm_prompt(state_name, data['discussions'], data['alerts'], data.get('rivers', []), data['offices'])
-        prompts_for_llm[state_name] = prompt
-        
         print(f"Generating summary for {state_name}...")
-        summary = get_llm_summary(prompt, client)
-        if not summary: # Fallback if summary is empty
-             summary = f"[[LLM to synthesize summary for {state_name} using the generated prompt]]"
+        prompt = create_llm_prompt(state_name, data['discussions'], data['alerts'], data['offices'])
+        prompts_for_llm[state_name] = prompt
+        summary_html = get_llm_summary(prompt, client)
         
-        # Wrap the summary in Markup to ensure the HTML tags from the LLM are rendered correctly.
-        template_data[state_template_map[state_name]] = Markup(summary)
-        
-        # Format and add the alerts for direct display in the template
-        formatted_alerts = []
+        # Append the summary paragraph
+        all_states_summary_html += f"{summary_html}"
+
+        # If there are alerts, format them and append them
         if data['alerts']:
-            for alert in data['alerts']:
-                formatted_alerts.append(Markup(format_alert(alert)))
+            formatted_alerts_html = "".join([format_alert(a) for a in data['alerts']])
+            all_states_summary_html += (
+                f'<div style="margin-top:5px; margin-left:15px; border-left: 2px solid #cc0000; padding-left:8px;">'
+                f'<strong style="font-size:15px;">Active Alerts:</strong><ul>{formatted_alerts_html}</ul></div>'
+            )
         
-        # Generate the key for the alerts list (e.g., 'tennessee_alerts')
-        alert_key = state_template_map[state_name].replace('_hazards', '_alerts')
-        template_data[alert_key] = formatted_alerts
+        # Add a break after each state entry
+        all_states_summary_html += "<br><br>"
+
+    header_html = f"""
+<p style="color:#000000; font-style:italic;">Weather.gov map checked at {datetime.now().strftime('%-I:%M %p %Z, %B %-d, %Y')}.</p>
+<h2 style="color:#990000; font-weight:bold;">5-Day Outlook</h2>
+"""
+    tropical_outlook_html = get_tropical_outlook(weather_data.get('nhc', {}))
+    threats_header_html = '<h3 style="color:#990000; font-weight:bold;">State-by-State Threats</h3>'
+    recommendations_html = get_general_recommendations(all_alerts)
+
+    desktop_content = (header_html + tropical_outlook_html + threats_header_html + 
+                       all_states_summary_html + recommendations_html)
+    mobile_content = desktop_content
+    
+    template = _env.get_template('base_template.html')
+    final_html = template.render(
+        now_timestamp=int(datetime.now().timestamp()),
+        desktop_content=Markup(desktop_content),
+        mobile_content=Markup(mobile_content)
+    )
+
+    with open(_output_html_path, 'w') as f:
+        f.write(final_html)
 
     with open(_prompts_path, 'w') as f:
         json.dump(prompts_for_llm, f, indent=4)
-    print("Prompts for the LLM have been saved to output/prompts_for_llm.json")
-
-
-    # Generate and add recommendations
-    all_alerts = weather_data.get('nws_alerts', [])
-    recommendations = generate_recommendations(all_alerts)
-    if recommendations:
-        # Wrap the generated HTML string in Markup to prevent auto-escaping by Jinja2
-        template_data["immediate_actions"] = Markup("".join([f"<li>{rec}</li>" for rec in recommendations]))
-    else:
-        template_data["immediate_actions"] = Markup("<li>No specific immediate actions recommended based on current alerts.</li>")
-
-    template_data["monitoring_actions"] = Markup("<li>Continue daily monitoring of NWS local offices for updates.</li>")
-
-    # Process NHC data
-    nhc_data = weather_data.get('nhc', {})
-    template_data["tropical_outlook_summary"] = nhc_data.get('summary', 'Not available.')
-    template_data["formation_chance"] = nhc_data.get('formation_chance_7day', '0')
-    
-    # Render the desktop and mobile content separately
-    desktop_content = desktop_template.render(template_data)
-    mobile_content = mobile_template.render(template_data)
-    
-    # Add the rendered content to the final template data
-    final_data = {
-        "now_timestamp": template_data["now_timestamp"],
-        "desktop_content": desktop_content,
-        "mobile_content": mobile_content
-    }
-
-    # Render the base template with the separated content
-    output_html = base_template.render(final_data)
-
-    with open(_output_html_path, 'w') as f:
-        f.write(output_html)
-
+        
     print(f"Weather report template saved to {_output_html_path}")
 
 if __name__ == "__main__":

@@ -27,11 +27,41 @@ def get_area_forecast_discussions(office_codes):
     """
     discussions = {}
     print("Fetching Area Forecast Discussions from NWS API...")
-    # This is a placeholder as the real API calls were removed in a previous step.
-    # A full implementation would make HTTP requests to the NWS API here.
+    
+    headers = {"User-Agent": "Weather Report Generator (for personal use)"} # A user-agent is required
+    
     for office_code in office_codes:
-        print(f"  Fetching AFD for {office_code}...")
-        discussions[office_code] = {"office_code": office_code, "product_text": f"This is a placeholder forecast discussion for {office_code}."}
+        api_url = f"https://api.weather.gov/products/types/AFD/locations/{office_code}"
+        try:
+            # Get the list of recent AFD products
+            response = requests.get(api_url, headers=headers, timeout=15)
+            response.raise_for_status()
+            product_list = response.json().get('@graph', [])
+            
+            if product_list:
+                # Get the URL of the latest AFD product
+                latest_product_url = product_list[0].get('@id')
+                if latest_product_url:
+                    print(f"  Fetching AFD for {office_code}...")
+                    # Fetch the actual product text
+                    product_response = requests.get(latest_product_url, headers=headers, timeout=15)
+                    product_response.raise_for_status()
+                    product_data = product_response.json()
+                    discussions[office_code] = {
+                        "office_code": office_code, 
+                        "product_text": product_data.get('productText', 'Could not retrieve discussion text.')
+                    }
+                else:
+                    print(f"  No AFD product URL found for {office_code}.")
+                    discussions[office_code] = {"office_code": office_code, "product_text": "No discussion URL found."}
+            else:
+                print(f"  No AFD products found for {office_code}.")
+                discussions[office_code] = {"office_code": office_code, "product_text": "No discussion products found."}
+
+        except requests.exceptions.RequestException as e:
+            print(f"  Could not fetch AFD for {office_code}: {e}")
+            discussions[office_code] = {"office_code": office_code, "product_text": f"Error fetching discussion: {e}"}
+
     return discussions
 
 def get_active_alerts_by_state(states):
