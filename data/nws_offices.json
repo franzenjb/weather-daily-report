@@ -1,0 +1,22 @@
+[
+    {"code": "OHX", "name": "Nashville, TN", "state": "Tennessee"},
+    {"code": "MEG", "name": "Memphis, TN", "state": "Tennessee"},
+    {"code": "MRX", "name": "Morristown, TN", "state": "Tennessee"},
+    {"code": "JAN", "name": "Jackson, MS", "state": "Mississippi"},
+    {"code": "BMX", "name": "Birmingham, AL", "state": "Alabama"},
+    {"code": "MOB", "name": "Mobile, AL", "state": "Alabama"},
+    {"code": "HUN", "name": "Huntsville, AL", "state": "Alabama"},
+    {"code": "FFC", "name": "Atlanta, GA", "state": "Georgia"},
+    {"code": "JAX", "name": "Jacksonville, FL", "state": "Georgia/Florida"},
+    {"code": "TAE", "name": "Tallahassee, FL", "state": "Florida"},
+    {"code": "TBW", "name": "Tampa Bay, FL", "state": "Florida"},
+    {"code": "MFL", "name": "Miami, FL", "state": "Florida"},
+    {"code": "MLB", "name": "Melbourne, FL", "state": "Florida"},
+    {"code": "RAH", "name": "Raleigh, NC", "state": "North Carolina"},
+    {"code": "ILM", "name": "Wilmington, NC", "state": "North Carolina"},
+    {"code": "MHX", "name": "Morehead City, NC", "state": "North Carolina"},
+    {"code": "CHS", "name": "Charleston, SC", "state": "South Carolina"},
+    {"code": "GSP", "name": "Greenville-Spartanburg, SC", "state": "South Carolina"},
+    {"code": "CAE", "name": "Columbia, SC", "state": "South Carolina"},
+    {"code": "SJU", "name": "San Juan, PR", "state": "U.S. Virgin Islands"}
+]

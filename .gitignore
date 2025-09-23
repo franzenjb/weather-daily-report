@@ -64,5 +64,6 @@ venv.bak/
 .DS_Store
 
 # Project specific
-data/
+data/weather_data.json
+data/prompts_for_llm.json
 *.log
