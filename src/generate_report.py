@@ -110,18 +110,24 @@ def get_general_recommendations(alerts):
 """
 
 def get_tropical_outlook(nhc_data):
-    """Formats the NHC data into a static HTML block."""
-    # This function remains largely the same
-    formation_chance = nhc_data.get('formation_chance_7day', '0')
-    summary = nhc_data.get('summary', 'No new tropical cyclones are expected during the next 7 days.')
+    """Embeds the NHC 7-day tropical outlook graphic."""
+    # Direct link to the NHC 7-day Atlantic tropical outlook graphic
+    # This image is updated automatically by NHC
     return f"""
 <div style="background-color:#f0e8e4; border-left:4px solid #7a1d1d; padding:15px; margin-bottom:20px;">
-<h3 style="color:#7a1d1d; font-weight:bold; font-size:18px; margin:0 0 8px;">Tropical Weather Outlook</h3>
-<p style="color:#000000; margin:0 0 5px;">{summary}</p>
-<div style="text-align:center;">
-<div style="display:inline-block; background-color:#7a1d1d; color:#ffffff; padding:2px 8px; font-size:30px; font-weight:bold;">
-Formation Chance (7-Day): <span style="font-size:30px;">{formation_chance}%</span>
-</div></div></div>
+<h3 style="color:#7a1d1d; font-weight:bold; font-size:18px; margin:0 0 8px;">Tropical Weather Outlook - Atlantic Basin (7-Day)</h3>
+<div style="text-align:center; margin:10px 0;">
+<a href="https://www.nhc.noaa.gov/gtwo.php?basin=atlc&fdays=7" target="_blank" style="text-decoration:none;">
+<img src="https://www.nhc.noaa.gov/xgtwo/two_atl_7d0.png" 
+     alt="NHC 7-Day Atlantic Tropical Outlook" 
+     style="max-width:100%; height:auto; border:1px solid #7a1d1d; box-shadow:0 2px 4px rgba(0,0,0,0.1);"
+     loading="lazy">
+</a>
+</div>
+<p style="text-align:center; font-size:12px; color:#666; margin:5px 0 0;">
+Click image for detailed forecast discussion from NHC
+</p>
+</div>
 """
 
 def main():
