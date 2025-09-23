@@ -8,6 +8,9 @@ on:
   push:
     branches: [main]  # Run on push to main for testing
 
+permissions:
+  contents: write  # Allow the workflow to push changes
+
 jobs:
   generate-report:
     runs-on: ubuntu-latest
