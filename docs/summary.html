@@ -1,86 +1,146 @@
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Weather Daily Report</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                max-width: 800px;
-                margin: 0 auto;
-                padding: 20px;
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                color: white;
-            }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Report</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #990000;
+            padding-bottom: 10px;
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            color: #990000;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #990000;
+            margin-top: 25px;
+        }
+        
+        h4 {
+            color: #990000;
+            margin-top: 20px;
+        }
+        
+        p {
+            line-height: 1.6;
+            color: #333;
+            margin: 15px 0;
+        }
+        
+        ul {
+            line-height: 1.8;
+        }
+        
+        li {
+            margin: 10px 0;
+        }
+        
+        .alert-warning {
+            color: #cc0000;
+            font-weight: bold;
+        }
+        
+        .alert-advisory {
+            color: #ffcc00;
+            font-weight: bold;
+        }
+        
+        .tropical-outlook {
+            background-color: #f0e8e4;
+            border-left: 4px solid #7a1d1d;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .state-summary {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fafafa;
+            border-left: 3px solid #990000;
+        }
+        
+        @media (max-width: 768px) {
             .container {
-                background: rgba(255, 255, 255, 0.1);
-                border-radius: 10px;
-                padding: 30px;
-                backdrop-filter: blur(10px);
+                padding: 10px;
             }
+            
             h1 {
-                text-align: center;
-                margin-bottom: 30px;
+                font-size: 2rem;
             }
-            .weather-info {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 20px;
-                margin: 20px 0;
+            
+            h2 {
+                font-size: 1.5rem;
             }
-            .info-item {
-                background: rgba(255, 255, 255, 0.1);
-                padding: 15px;
-                border-radius: 5px;
+            
+            h3 {
+                font-size: 1.3rem;
             }
-            .info-label {
-                font-weight: bold;
-                margin-bottom: 5px;
-            }
-            .footer {
-                text-align: center;
-                margin-top: 30px;
-                font-size: 0.9em;
-                opacity: 0.8;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1>🌤️ Weather Daily Report</h1>
-            <div class="weather-info">
-                <div class="info-item">
-                    <div class="info-label">📍 Location</div>
-                    <div>Florida</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">🌡️ Temperature</div>
-                    <div>75°F</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">☁️ Conditions</div>
-                    <div>Partly Cloudy</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">💧 Humidity</div>
-                    <div>65%</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">💨 Wind Speed</div>
-                    <div>10 mph</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">📅 Forecast</div>
-                    <div>Sunny with occasional clouds</div>
-                </div>
-            </div>
-            <div class="footer">
-                Last updated: 2025-09-23T05:04:15.196042<br>
-                Generated by Weather Daily Report System
-            </div>
+        }
+        
+        .timestamp {
+            text-align: right;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Daily Weather Report</h1>
+        
+        
+<p style="color:#000000; font-style:italic;">Weather.gov map checked at 5:33 AM EDT, September 23, 2025.</p>
+<h2 style="color:#990000; font-weight:bold;">5-Day Outlook for September 23, 2025</h2>
+
+<div style="background-color:#f0e8e4; border-left:4px solid #7a1d1d; padding:15px; margin-bottom:20px;">
+<h3 style="color:#7a1d1d; font-weight:bold; font-size:18px; margin:0 0 8px;">Tropical Weather Outlook</h3>
+<p style="color:#000000; margin:0 0 5px;">Tropical cyclone formation is not expected during the next 7 days.</p>
+<div style="text-align:center;">
+<div style="display:inline-block; background-color:#7a1d1d; color:#ffffff; padding:2px 8px; font-size:30px; font-weight:bold;">
+Formation Chance (7-Day): <span style="font-size:30px;">0%</span>
+</div></div></div>
+<h3 style="color:#990000; font-weight:bold;">State-by-State Threats</h3><p><strong>Tennessee:</strong> <span style="color:#ffcc00; font-weight:bold;">ADVISORY</span> for potential flash flooding and severe weather. OHX and MEG report medium to high rain and thunderstorm chances through Thursday, with localized heavy downpours and minor flooding possible. A marginal risk for severe storms exists, with damaging winds and heavy rain primarily affecting areas north of I-40. MRX indicates increased flash flood risk by Wednesday and Thursday due to cumulative rainfall. All areas should prepare for potential localized flooding and monitor updates. No active alerts currently, but conditions may change rapidly.</p><br><br><p><strong>Mississippi:</strong> <span style="color:#ffcc00; font-weight:bold;">ADVISORY</span> Marginally severe storms possible late Tue night through Wed, primarily affecting northwest areas with strong wind gusts and heavy downpours. Minor ponding possible, but flash flood risk is low. Severe weather threat diminishes by Thu, with additional rainfall in eastern and southeast areas. Dry and milder conditions expected by Fri into the weekend.</p><br><br><p><strong>Alabama:</strong> <span style="color:#ffcc00; font-weight:bold;">ADVISORY</span> Marginal Risk of severe thunderstorms for central Alabama from Wednesday afternoon through Thursday afternoon, with potential for strong to damaging wind gusts. Rainfall of over 1 inch is expected during this period. Monitor for updates and prepare for possible severe weather. All offices (BMX, MOB, HUN) are monitoring the situation closely.</p><br><br><p><strong>Georgia:</strong> <span style="color:#ffcc00; font-weight:bold;">ADVISORY</span> for isolated to scattered thunderstorms in North GA today, with potential for locally heavy rainfall Wednesday night through Friday as a cold front moves through. North GA may see 1-2 inches of rain, with localized amounts up to 4 inches in higher elevations, posing a risk for flash flooding in urban and mountainous areas. High temperatures in the upper 80s to mid-90s, cooling to near normal by Friday. Monitor conditions closely, especially in flood-prone areas.</p><br><br><p><strong>Florida:</strong> <span style="color:#cc0000; font-weight:bold;">WARNING</span> Flood Warning issued for areas under NWS Melbourne jurisdiction. Expect increased shower and thunderstorm activity across the state, with the highest chances over interior and southwest Florida. Monitor for potential urban flooding in metro areas due to weak steering flows. Elevated rip current risk persists along the Atlantic coast. Stay updated with local advisories and warnings.</p><div style="margin-top:5px; margin-left:15px; border-left: 2px solid #cc0000; padding-left:8px;"><strong style="font-size:15px;">Active Alerts:</strong><ul><li><span style="color:#cc0000; font-weight:bold;">WARNING</span>: Flood Warning for Lake, FL; Volusia, FL.<br><i style="font-size:13px;">Flood Warning issued September 22 at 8:46PM EDT by NWS Melbourne FL</i></li></ul></div><br><br><p><strong>North Carolina:</strong> All offices (RAH, ILM, MHX) confirm no significant weather threats are forecast.</p><br><br><p><strong>South Carolina:</strong> All offices (CHS, GSP, CAE) confirm no significant weather threats are forecast.</p><br><br><p><strong>U.S. Virgin Islands:</strong> <span style="color:#cc0000; font-weight:bold;">WARNING</span> A vigorous tropical wave will bring widespread showers and thunderstorms through the weekend, with heavy rainfall causing localized flooding and landslides, especially in St. Thomas and western St. Croix. Elevated heat indices will persist, posing a significant heat threat. Residents should prepare for potential flash flooding and monitor updates. Beachgoers should exercise caution due to increased rip current risk and hazardous marine conditions.</p><br><br>
+<h3 style="color:#990000; font-weight:bold;">Recommendations</h3>
+<h4 style="color:#990000; font-weight:bold;">Immediate Actions</h4>
+<ul><li>Avoid swimming in hazardous surf conditions.</li><li>Do not drive through flooded roadways.</li><li>Stay hydrated and avoid strenuous activity during peak heat.</li></ul>
+<h4 style="color:#990000; font-weight:bold;">5-Day Monitoring</h4>
+<ul><li>Monitor NWS local offices for new or updated advisories.</li><li>Track NHC updates.</li></ul>
+
+        
+        <div class="timestamp">
+            <p>Generated: <span id="timestamp"></span></p>
+            <p>Data sources: NOAA/NWS, National Hurricane Center</p>
         </div>
-    </body>
-    </html>
+    </div>
     
+    <script>
+        // Set the timestamp
+        const timestamp = new Date(1758620033 * 1000);
+        document.getElementById('timestamp').textContent = timestamp.toLocaleString();
+    </script>
+</body>
+</html>
