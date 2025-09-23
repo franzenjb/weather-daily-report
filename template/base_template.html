@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Report</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #990000;
+            padding-bottom: 10px;
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            color: #990000;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #990000;
+            margin-top: 25px;
+        }
+        
+        h4 {
+            color: #990000;
+            margin-top: 20px;
+        }
+        
+        p {
+            line-height: 1.6;
+            color: #333;
+            margin: 15px 0;
+        }
+        
+        ul {
+            line-height: 1.8;
+        }
+        
+        li {
+            margin: 10px 0;
+        }
+        
+        .alert-warning {
+            color: #cc0000;
+            font-weight: bold;
+        }
+        
+        .alert-advisory {
+            color: #ffcc00;
+            font-weight: bold;
+        }
+        
+        .tropical-outlook {
+            background-color: #f0e8e4;
+            border-left: 4px solid #7a1d1d;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .state-summary {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fafafa;
+            border-left: 3px solid #990000;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.3rem;
+            }
+        }
+        
+        .timestamp {
+            text-align: right;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Daily Weather Report</h1>
+        
+        {{ desktop_content }}
+        
+        <div class="timestamp">
+            <p>Generated: <span id="timestamp"></span></p>
+            <p>Data sources: NOAA/NWS, National Hurricane Center</p>
+        </div>
+    </div>
+    
+    <script>
+        // Set the timestamp
+        const timestamp = new Date({{ now_timestamp }} * 1000);
+        document.getElementById('timestamp').textContent = timestamp.toLocaleString();
+    </script>
+</body>
+</html>

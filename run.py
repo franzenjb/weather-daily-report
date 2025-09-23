@@ -4,6 +4,8 @@
 from src import fetch_weather
 from src import generate_report
 import time
+import shutil
+import os
 
 def main():
     """
@@ -26,13 +28,23 @@ def main():
     try:
         generate_report.main()
         print("[Step 2/2] Report generation complete.")
+        
+        # Copy the report to docs/summary.html for GitHub Pages
+        output_path = "output/index.html"
+        docs_path = "docs/summary.html"
+        
+        if os.path.exists(output_path):
+            os.makedirs("docs", exist_ok=True)
+            shutil.copy(output_path, docs_path)
+            print(f"Report copied to {docs_path} for GitHub Pages")
+            
     except Exception as e:
         print(f"!!! An error occurred during report generation: {e}")
         return
     
     end_time = time.time()
     print(f"\n--- Weather Report Generation Finished in {end_time - start_time:.2f} seconds ---")
-    print("Final report is available at: output/summary.html")
+    print("Final report is available at: output/index.html and docs/summary.html")
 
 if __name__ == "__main__":
     main()

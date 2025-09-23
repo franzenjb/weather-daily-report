@@ -4,3 +4,4 @@ python-dotenv
 jinja2
 markupsafe
 pytz
+beautifulsoup4
