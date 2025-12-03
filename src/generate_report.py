@@ -191,11 +191,12 @@ def main():
 <p style="color:#000000; font-style:italic;">Weather.gov map checked at {now_eastern.strftime('%-I:%M %p %Z, %B %-d, %Y')}.</p>
 <h2 style="color:#990000; font-weight:bold;">5-Day Outlook for {now_eastern.strftime('%B %-d, %Y')}</h2>
 """
-    tropical_outlook_html = get_tropical_outlook(weather_data.get('nhc', {}))
+    # Hurricane season is over - tropical outlook removed
+    # tropical_outlook_html = get_tropical_outlook(weather_data.get('nhc', {}))
     threats_header_html = '<h3 style="color:#990000; font-weight:bold;">State-by-State Threats</h3>'
     recommendations_html = get_general_recommendations(all_alerts)
 
-    desktop_content = (header_html + tropical_outlook_html + threats_header_html + 
+    desktop_content = (header_html + threats_header_html +
                        all_states_summary_html + recommendations_html)
     
     template = _env.get_template('base_template.html')
